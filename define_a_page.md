@@ -93,4 +93,37 @@ export default {
 }
 </style>
 ```
+
 可以看到, 文字加了颜色, TODO 图片.
+
+## 在页面中定义并显示变量
+
+如果要在vue页面中定义一个变量,并把它显示出来,就需要事先在 `data` 中定义:
+(具体步骤见注释)
+
+```
+<template>
+  <div>
+    <!--  步骤2: 在这里显示 message -->
+    {{message}}
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      // 步骤1: 这里定义了变量 message 的初始值
+      message: '你好Vue! 本消息来自于变量'
+    }
+  }
+}
+</script>
+
+<style>
+</style>
+```
+
+页面打开如下:
+
+TODO
