@@ -6,7 +6,7 @@
   * [项目文件夹基本结构](file_structure.md)
   * [定义一个页面](define_a_page.md)
   * [发送http请求](http_request.md)
-  * [第一个页面传递参数。到第二个页面](parse_paremters.md)
+  * [不同页面的参数传递](parse_paremters.md)
   * [路由todo](router.md)
   * [使用样式](styling.md)
   * [视图中的 v-for 循环](v_for.md)
