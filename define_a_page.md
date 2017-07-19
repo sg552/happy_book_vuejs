@@ -1,0 +1,96 @@
+# 创建一个页面
+
+创建页面需要两步：
+
+1. 新建路由
+2. 新建vue页面
+
+
+## 新建一个路由
+
+路由文件是 `src/router/index.js`, 打开之后, 我们增加两行:
+
+```
+import Vue from 'vue'
+import Router from 'vue-router'
+
+// 增加这一行, 作用是引入 SayHi 这个component
+import SayHi from '@/components/SayHi'
+
+Vue.use(Router)
+export default new Router({
+  routes: [
+
+    // 增加下面几行, 表示定义了  /#/say_hi 这个url
+    {
+      path: '/say_hi',
+      name: 'SayHi',
+      component: SayHi
+    },
+  ]
+})
+```
+
+## 创建一个新的component
+
+我们要创建 `src/components/SayHi.vue`, 这个文件.
+
+如下:
+
+```
+<template>
+  <div >
+    Hi Vue!
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return { }
+  }
+}
+</script>
+
+<style>
+</style>
+
+```
+
+现在,我们可以直接访问  http://localhost:8080/#/say_hi 这个链接了. 效果如下图.
+
+TODO 图片
+
+
+<template></template> 代码块中,表示的是 HTML模板.
+<script>表示的是 js 代码. 所有的js代码都写在这里.
+<style>表示所有的 CSS/scss/less 文件都可以写在这里.
+
+## 为页面增加一些样式
+
+例如,我们可以把页面加一些样式:
+
+```
+
+<template>
+  <div class='hi'>
+    Hi Vue!
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return { }
+  }
+}
+</script>
+
+<style>
+.hi {
+  color: red;
+  font-size: 20px;
+}
+</style>
+```
+可以看到, 文字加了颜色, TODO 图片.
