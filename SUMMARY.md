@@ -5,6 +5,7 @@
   * [搭建环境与hello world](preparation.md)
   * [项目文件夹基本结构](file_structure.md)
   * [定义一个页面](define_a_page.md)
+  * [语法简写说明](es_script.md)
   * [发送http请求](http_request.md)
   * [不同页面的参数传递](parse_paremters.md)
   * [路由todo](router.md)
@@ -25,7 +26,6 @@
     * [声明](mixin_declaration.md)
     * [使用](mixin_usage.md)
 
-  * [一些es script语法](es_script.md)
 
   * [vuex](vuex_introduction.md)
     * [声明](vuex_declaration.md)
