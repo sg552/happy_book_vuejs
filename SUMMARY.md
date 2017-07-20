@@ -8,7 +8,7 @@
   * [语法简写说明](es_script.md)
   * [发送http请求](http_request.md)
   * [不同页面的参数传递](parse_paremters.md)
-  * [路由todo](router.md)
+  * [路由](router.md)
   * [使用样式](styling.md)
   * [视图中的 v-for 循环](v_for.md)
   * [视图中的 v-if](v_if.md)
