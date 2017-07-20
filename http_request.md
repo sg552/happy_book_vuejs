@@ -129,12 +129,11 @@ $ npm run dev
 
 打开chrome developer tools, 就可以看到，"Network"中，已经有请求发出去了，截图显示了结果：
 
+![chrome dev tools中的network](./images/vue_chrome_dev_tool_network.png)
 
-TODO；　
+另外，我们也可以直接在浏览器中，输入要打开的链接，看到结果．(该浏览器使用了 json view插件)
 
-另外，我们也可以直接在浏览器中，输入要打开的链接，看到结果．
-
-TODO
+![浏览器直接打开链接](./images/直接用浏览器打开要被代理服务器发出的请求.png)
 
 ## 把结果渲染到页面中．
 
@@ -195,7 +194,7 @@ mounted方法与created方法基本一样，一般我们在Vue 2.0中都使用mo
 - "blog in blogs": 前面的 `blog` 是一个临时变量，用于遍历使用．
 后面的`blogs` 是http 请求成功后，　`this.blogs = ... ` 这个变量．
 同时，这个`this.blogs` 是声明于　`data`钩子方法中．
-- `{{blog.title}}` 用来显示每个blog.title的值
+- \{\{blog.title}} 用来显示每个blog.title的值
 
 ## 发起post请求
 

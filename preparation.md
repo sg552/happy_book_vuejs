@@ -186,4 +186,5 @@ $ npm run dev
 打开 `http://localhost:8080` 就可以看到。
 
 如下图：
-TODO 图片。
+
+![默认欢迎页](./images/vue_default_hello.jpg)

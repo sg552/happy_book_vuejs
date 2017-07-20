@@ -59,12 +59,12 @@ export default {
 
 现在,我们可以直接访问  http://localhost:8080/#/say_hi 这个链接了. 效果如下图.
 
-TODO 图片
+![say_hi图片](./images/vue_doc_say_hi_page.png)
 
 
-<template></template> 代码块中,表示的是 HTML模板.
-<script>表示的是 js 代码. 所有的js代码都写在这里.
-<style>表示所有的 CSS/scss/less 文件都可以写在这里.
+- `<template></template>` 代码块中,表示的是 HTML模板.
+- `<script>`表示的是 js 代码. 所有的js代码都写在这里.
+- `<style>`表示所有的 CSS/scss/less 文件都可以写在这里.
 
 ## 为页面增加一些样式
 
@@ -94,7 +94,9 @@ export default {
 </style>
 ```
 
-可以看到, 文字加了颜色, TODO 图片.
+可以看到, 文字加了颜色, 如下图:
+
+![加了颜色的文字](./images/say_hi_with_style.png)
 
 ## 在页面中定义并显示变量
 
@@ -124,6 +126,6 @@ export default {
 </style>
 ```
 
-页面打开如下:
+页面打开如下图所示:
 
-TODO
+![来自于变量的消息](./images/vue_page_show_variable.png)
