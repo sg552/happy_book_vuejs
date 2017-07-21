@@ -80,3 +80,68 @@ Origin 'http://vue_demo.siwei.me' is therefore not allowed access.
 
 ![跨域问题](./images/vuejs_跨域问题.gif)
 
+
+## 解决域名问题好跨域问题
+
+1. 在代码端, 处理方式不变, 访问 '/api' + 原域名:
+
+```
+this.$http.get('/api/interface/blogs/all')...
+```
+
+2. 在开发的时候, 继续保持vuejs 的代理存在. 配置代码如下:
+
+```
+proxyTable: {
+  '/api': {
+    target: 'http://siwei.me',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api': ''
+    }
+  }
+},
+```
+
+3. 在nginx的配置文件中,加入代理:
+
+```
+  server {
+    listen       80;
+    server_name  vue_demo.siwei.me;
+    client_max_body_size       500m;
+    charset utf-8;
+    root /opt/app/vue_demo;
+
+		# 第一步,把所有的 mysite.com/api/interface  转换成:   mysite.com/interface
+    location /api {
+      rewrite    ^(.*)\/api(.*)$    $1$2;
+    }
+
+		# 第二步，　把所有的 mysite.com/interface 的请求，转发到 siwei.me/interface
+    location /interface {
+      proxy_pass          http://siwei.me;
+    }
+  }
+
+```
+
+就可以了．
+
+也就是说，　上面的配置，把　
+
+```
+http://vue_demo.siwei.me/api/interface/blogs/all
+```
+
+在服务器端做了个变换，相当于访问了：
+
+```
+http://siwei.me/interface/blogs/all
+```
+
+重启nginx ,　就会发现生效了．
+
+如下所示：
+
+![解决了跨域问题](./images/vuejs_解决跨域问题之后.gif)
