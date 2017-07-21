@@ -17,7 +17,7 @@
   * [表单的绑定](form.md)
   * [表单的提交](form_submit.md)
 * [部署和发布](build_and_deploy.md)
-  * [打包的方式](build_a_package.md)
+  * [打包的方式](build_project.md)
   * [部署到nginx](deploy_with_nginx.md)
   * [在nginx上配置，解决跨域问题](nginx_fix_cross_domain_problem.md)
   * [如何debug](how_to_debug.md)
