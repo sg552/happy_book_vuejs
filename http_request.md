@@ -201,13 +201,29 @@ mounted方法与created方法基本一样，一般我们在Vue 2.0中都使用mo
 
 跟get特别类似，就是第二个参数是　请求的body.
 
+
+在　vue的配置文件中　（例如　webpack项目的　src/main.js 中）增加下面一句：
+
 ```
-    this.$http.post('api/interface/blogs/all', {title: '', blog_body: ''})
-      .then((response) => {
-        ...
-      }, (response) => {
-        ...
-      });
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
+....
+
+//增加下面这句：
+Vue.http.options.emulateJSON = true;
+```
+
+上面这句的目的，是为了能够让发出的post请求不会被浏览器转换成option　请求．
+
+然后就可以按照下面的代码发送请求了：
+
+```
+this.$http.post('api/interface/blogs/all', {title: '', blog_body: ''})
+	.then((response) => {
+		...
+	}, (response) => {
+		...
+	});
 ```
 
 官方文档：https://github.com/pagekit/vue-resource
