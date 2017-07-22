@@ -38,3 +38,40 @@ $ npm run dev
 而 JSP, PHP, Rails ERB, 则是 "正常框架", 出了问题可以直接找到最底层.
 
 所以,我们要有一定的经验来Debug. 来理解错误日志.
+
+## 查看页面给出的错误提示(来自于dev server)
+
+如下图:
+
+![错误提示,来自于服务器](./images/vue_error_from_page.png)
+
+
+```
+  Error compiling template:
+
+    <div class='logo'>
+      <img src='http://siweitech.b0.upaiyun.com//image/570/siwei.me_header.png'/>
+    </div>
+  <template>
+  <script>
+  </script>
+  - Component template should contain exactly one root element. If you are using v-if on multiple elements, use v-else-if to chain them instead.
+  - Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as <script>, as they will not be parsed.
+  - tag <template> has no matching end tag.
+```
+
+这里 `Error compiling template: ` 给出了提示, 错误是由于 模板在被编译时产生的.
+
+下面给出的HTML代码则是出错的点.
+
+
+```
+@ ./src/components/Logo.vue 6:2-177
+@ ./~/babel-loader/lib!./~/vue-loader/lib/selector.js?type=script&index=0!./src/components/BlogList.vue
+@ ./src/components/BlogList.vue
+@ ./src/router/index.js
+@ ./src/main.js
+@ multi ./build/dev-client ./src/main.js
+```
+
+这里是调用栈. 可以看到,出现错误在于 最上面的 Logo.vue, 第六行第二列.
