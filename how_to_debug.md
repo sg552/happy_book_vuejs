@@ -7,11 +7,6 @@
 
 所以, 我们要驾驭好JS语言,就要知道如何有效的Debug.
 
-## developer tools
-
-无论是 chrome, safari 还是firefox, 以及  IE 7+ , 都带有这个工具. 特别好用. 任何时候
-页面空白了,都要首先看它, 而不是问别人: "页面怎么不动了?"
-
 ## 时刻留意 vue server
 
 我们开发时的命令:
@@ -23,7 +18,14 @@ $ npm run dev
 会开启一个"开发服务器", 这个开发服务器的后台,我们要时刻留意输出.
 有时候我们把代码写错了, 导致Vuejs无法编译, 前台就会一片空白, 还没有任何出错提示.
 
+![后台错误提示](./images/vuejs_server_error.png)
+
+上面的错误提示很好理解,说 "编译时出现错误",也给出了错误的详细位置.
+
 ## 看developer tools 提出的日志
+
+无论是 chrome, safari 还是firefox, 以及  IE 7+ , 都带有这个工具. 特别好用. 任何时候
+页面空白了,都要首先看它, 而不是问别人: "页面怎么不动了?"
 
 由于JS代码不是特别严谨, 所以给出的错误提示也都很概括.我们可以做个对比:
 
@@ -38,6 +40,29 @@ $ npm run dev
 而 JSP, PHP, Rails ERB, 则是 "正常框架", 出了问题可以直接找到最底层.
 
 所以,我们要有一定的经验来Debug. 来理解错误日志.
+
+例如下图:
+
+![错误提示,来自于dev tool](./images/vuejs_console_error.png)
+
+```
+vue.esm.js?65d7:434 [Vue warn]: Property or method "博客详情页" is not defined on the instance but referenced during render. Make sure to declare reactive data properties in the data option.
+
+found in
+
+---> <Blog> at /workspace/test_vue_0613/src/components/Blog.vue
+       <App> at /workspace/test_vue_0613/src/App.vue
+         <Root>
+```
+
+- `vue.esm.js?65d7:434` 表示错误的来源. 这个文件一般人不知道来自于哪里, 我们暂且认为它来自于
+临时产生的文件,或者虚拟js机中.
+- `Property or method "博客详情页" is not defined ...` 这句话提示了错误的原因.
+- `found in ... <Blog> at ...` 这里则是调用栈, 可以看出, 文件是从下调用到最上面的. 问题出在最
+上面的文件. 但是没有给出错误的行数.
+
+
+
 
 ## 查看页面给出的错误提示(来自于dev server)
 
