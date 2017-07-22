@@ -64,3 +64,68 @@ export default {
 就可以了. 两个页面都发生了变化, 如下图:
 
 ![两个页面都具备了logo](./images/vuejs_增加了logo_components.gif)
+
+
+## 向组件中传递参数
+
+如果我希望两个页面, 每个页面都有个title, 但是内容不同,该怎么办? 就需要传递参数了.
+
+声明的时候, 这样:
+
+文件: `src/components/Logo.vue`
+
+```
+<template>
+  <div class='logo'>
+    <h1>{{title}}</h1>
+		...
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['title']    // 加上了这个声明.
+}
+</script>
+```
+
+### 参数是字符串
+
+在调用的时候, 传递字符串:
+
+```
+<my-logo title="博客列表页">
+</my-logo>
+```
+
+就可以了.
+
+### 接收变量.
+
+如果要传递的参数是一个变量, 就要这么写:
+
+```
+<template>
+    <my-logo :title="title">
+    </my-logo>
+    <input type='button' @click='change_title' value='点击修改标题'/><br/>
+</template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      title: '博客列表页',
+    }
+  },
+  methods: {
+    change_title: function(){
+      this.title = '好多文章啊(标题被代码修改过了)'
+    }
+  },
+</script>
+```
+
+如下图:
+
+![传递变量给组件](./images/vuejs_传递参数给组件.gif)
