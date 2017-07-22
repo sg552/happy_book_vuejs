@@ -41,6 +41,37 @@ import store from '../vuex/store'
 
 对于vue程序员,我们就记住这个写法就好了.  没它不行, 有它也没太大意义. 鸡肋代码.
 
+往深入说一下:(参考: http://www.jianshu.com/p/710e66547bbb )
+
+在ES6之前js没有一个统一的模块定义方式，流行的定义方式有AMD,CommonJS等,而ES6从语言层面对定义模块的方式进行了统一。
+
+
+假设有: `lib/math.js` 文件内容如下:
+
+```
+export function sum(x, y) {
+  return x + y
+}
+export var pi = 3.141593
+```
+
+`app.js`  文件内容如下:
+
+```
+import * as math from "lib/math"
+alert("2π = " + math.sum(math.pi, math.pi))
+```
+
+`other_app.js` 文件内容如下:
+
+```
+import {sum, pi} from "lib/math"
+alert("2π = " + sum(pi, pi))
+```
+
+`export default { ... } ` 则是暴露出一段没有名字的代码, (不像 `export function sum(a,b){ .. }`
+这样有个名字(叫sum) .  )
+
 ## 一些简写
 
 我们会发现,这样的代码:
