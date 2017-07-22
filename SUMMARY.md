@@ -20,7 +20,6 @@
   * [打包和部署](build_project.md)
   * [在nginx上配置，解决跨域问题](nginx_fix_cross_domain_problem.md)
   * [如何debug](how_to_debug.md)
-  * [使用chrome vuejs 插件](chrome_vue_plugin.md)
   * [基本命令( vue, vue-cli)](basic_command_line.md)
 * [进阶知识](advanced_vue.md)
   * [使用 component](component.md)
