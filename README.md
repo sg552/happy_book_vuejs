@@ -34,4 +34,7 @@
 
 联系方式：　　申思维　　　shensiwei@sina.com   http://siwei.me
 
+本书使用gitbook写就，可以自行编译, git地址： https://github.com/sg552/happy_book_vuejs
+
 欢迎随意转载, 让更多的人学会Vuejs这种更加简单高效的技术。
+
