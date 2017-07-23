@@ -29,7 +29,7 @@
 - guide, 教程型文档。
 - api, 接口型文档.
 
-本文档就是入门的教程型文档。
+本文档就是入门的教程型文档。 在线查看地址：http://vue_book.siwei.me/
 
 本教程的所有代码，都来源于这个demo:  https://github.com/sg552/vue_js_lesson_demo
 

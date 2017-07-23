@@ -5,7 +5,7 @@ SSH_USER = 'root2'
 ssh_options[:port] = 22
 set :rake, "bundle exec rake"
 set :application, "vue_book.siwei.me"
-set :repository, "./dist"
+set :repository, "./_book"
 set :scm, :none
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :deploy_via, :copy
