@@ -71,6 +71,8 @@ https://www.quora.com/How-does-Vue-js-compare-to-React-js
 
 https://laracasts.com/discuss/channels/vue/vuejs-or-reactjs-which-should-i-choose-to-make-frontend/?page=1
 
-而且vuejs 有中文文档：  cn.vuejs.org
+而且vuejs 有中文文档：  http://cn.vuejs.org
 
-对于小弟们上手足够快乐(了）
+这可以让小弟们上手足够快.
+
+

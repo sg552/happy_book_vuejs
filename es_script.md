@@ -175,15 +175,19 @@ let person = {
   age : 29,
   sex : "man"
 };
-
-```
-let {firstname, lastname} = person;
 ```
 
-等价于:
+然后，我们可以这样做定义：
+
 ```
-let firstname = person.firstname;
-let lastname = person.lastname;
+let {firstname, lastname} = person
+```
+
+上面一行代码，等价于:
+
+```
+let firstname = person.firstname
+let lastname = person.lastname
 ```
 
 我们可以这样定义函数:

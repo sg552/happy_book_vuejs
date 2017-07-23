@@ -2,7 +2,7 @@
 
 ## 渲染过程
 
-1. 最初的最初，我们要知道  `./build/webpack.base.conf.js` 这个文件，是webpack打包的主要配置文件
+1.最初的最初，我们要知道  `./build/webpack.base.conf.js` 这个文件，是webpack打包的主要配置文件
 
 其中
 
@@ -16,7 +16,7 @@ module.exports = {
 
 知道了这个打包文件，我们就可以知道接下来的事儿了。
 
-2. 找到index.html ，可以看到它的内容如下；
+2.找到`index.html` ，可以看到它的内容如下；
 
 
 ```
@@ -27,7 +27,7 @@ module.exports = {
 这里的  `id='app'`, 就是将来会动态变化的内容。特别类似于 rails的 layout.
 只不过这个layout是第一层layout(最大的layout)
 
-3. 回到 `src/main.js` ， 可以看到它的内容如下；
+3.回到 `src/main.js` ， 可以看到它的内容如下；
 
 ```
 import Vue from 'vue'
@@ -46,8 +46,7 @@ new Vue({
 
 熟悉 jquery, css selector的同学可以看到， `el: '#app'` 就是 `index.html` 中的 `<div id= app>`
 
-4. 注意上面的 `App.vue`,  它会被 `main.js`  加载， App.vue的内容如下：
-
+4.注意上面的 `App.vue`,  它会被 `main.js`  加载， App.vue的内容如下：
 
 ```
 <template>
@@ -85,4 +84,11 @@ Vuejs 就是最典型的Ajax 工作方式:  只渲染部分页面.
 - `/#/books_list` 对应 某个列表页
 - `/#/books/3` 对应某个详情页
 
-(qq邮箱是属于那种, url无法跟某个页面一一对应的项目. 所有页面的跳转,都无法根据url 来判断)
+
+## 没落的技术：QQ邮箱
+
+qq邮箱是属于那种: url无法跟某个页面一一对应的项目.
+
+所有页面的跳转,都无法根据url 来判断
+
+最大的特点： 无法保存页面的状态， 难以调试， 无法根据url直接进入某个页面。

@@ -2,8 +2,8 @@
 
 在普通的web开发中，参数传递有这么几种形式：
 
-1. url:   /another_page?id=3
-2. 表单：
+1. url:   `/another_page?id=3`
+2. 表单: `<form>...</form>`
 
 在vuejs中，不会产生表单的提交（这会引起页面的整体刷新）.　所以有两种：
 
@@ -13,7 +13,7 @@
 我们用一个实际的例子说明．
 
 
-我们之前实现了　＂博客列表页＂，接下来我们要实现：点击博客列表页中的某一项，显示博客详情页．
+我们之前实现了　＂博客列表页＂，接下来我们要实现：点击博客列表页中的某一行，就显示博客详情页．
 
 ## 现有的接口
 
@@ -69,17 +69,16 @@ export default {
 
 上面代码中:
 
-- `data(){ ... blog: {}}` 用来初始化 blog这个页面用到的变量.
-- `{{blog.body}}`, `{{blog.title}}`等, 用来显示blog相关的信息.
+- `data(){ blog: {}}` 用来初始化 blog这个页面用到的变量.
+- \{\{blog.body}}, \{\{blog.title}} 等, 用来显示blog相关的信息.
 - `mounted...` 中,定义了发起http的请求.
-- `this.$route.query.id` 获取url 中的id参数. 例如:   /my_url?id=333 , 那么 '333' 就是取到的结果.
+- `this.$route.query.id` 获取url 中的id参数. 例如:   `/my_url?id=333` , 那么 '333' 就是取到的结果.
 
 ## 新增路由
 
 修改 ： `src/router/index.js`
 
 ```
-
 export default new Router({
   routes: [
 		// ...
@@ -92,22 +91,21 @@ export default new Router({
 } )
 ```
 
-## 修改博客列表页--跳转方式1: 使用跳转事件
+## 修改博客列表页--跳转方式1: 使用事件
 
 我们需要修改博客列表页, 增加跳转事件:
 
 
 ```
 <template>
-		<!-- ... -->
+  ...
       <tr v-for="blog in blogs">
         <td @click='show_blog(blog.id)'>{{blog.title }}</td>
       </tr>
-		<!-- ... -->
+  ...
 </template>
 <script>
 export default {
-	//...
   methods: {
     show_blog: function(blog_id) {
       this.$router.push({name: 'Blog', query: {id: blog_id}})
@@ -119,12 +117,12 @@ export default {
 
 在上面代码中,
 
-- `<td @click='show_blog(blog.id)'...` 表示, 该<td>标签在被点击的时候,会触发一个事件: `show_blog`
+- `<td @click='show_blog(blog.id)'...` 表示, 该`<td>`标签在被点击的时候,会触发一个事件: `show_blog`
 并且以当前正在遍历的 blog对象的id 作为参数.
 - `methods: {}` 是比较核心的方法,  vue页面中用到的事件,都要写在这里.
 - `show_blog: function...` 就是我们定义的方法.该方法可以通过`@click="show_blog" `来调用.
 - `this.$router.push({name: 'Blog', params: {id: blog_id}})`中:
-	- `this.$router` 是vue的内置对象. 表示路由.
+  - `this.$router` 是vue的内置对象. 表示路由.
   - `this.$router.push` 表示让vue跳转. 跳转到 name: Blog 对应的vue页面. 参数是 id: blog_id .
 
 
@@ -143,7 +141,6 @@ export default {
 所以，我们把它修改一下,不要转义:
 
 ```
-
 <template>
    .....
       <div v-html='blog.body'>
@@ -171,11 +168,11 @@ export default {
 当你在 HTML5 history 模式下使用 base 选项之后，所有的 to 属性都不需要写（基路径）了。
 
 ```
-        <td>
-          <router-link :to="{name: 'Blog', query: {id: blog.id}}">
-            {{blog.id}}
-          </router-link>
-        </td>
+<td>
+  <router-link :to="{name: 'Blog', query: {id: blog.id}}">
+    {{blog.id}}
+  </router-link>
+</td>
 ```
 
 然后,就可以看到,生成的HTML形如:

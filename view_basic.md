@@ -89,12 +89,10 @@ export default {
 
 ## 事件处理：　v-on
 
-我们看到，很多时候，　`@click`
+我们看到，很多时候，　`@click` 等同于 `v-on:click`, 下面两个是一样的：　
+
 ```
 <input type='button' @click="say_hi('Jim')" value='...'/>
-```
-等同于：　
-```
 <input type='button' v-on:click="say_hi('Jim')" value='...'/>
 ```
 

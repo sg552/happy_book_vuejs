@@ -33,8 +33,8 @@ export default new Router({
 写法是固定的. 其中的:
 
 - path: 定义了 链接地址, 例如:   `/#/say_hi`
-- name: 为这个路由加个名字, 方便以后引用,例如:   this.$router.push({name: 'SayHi'})
-- component: 该路由由哪个 component来处理.
+- name: 为这个路由加个名字, 方便以后引用,例如:   `this.$router.push({name: 'SayHi'})`
+- component: 该路由由哪个component来处理.
 
 ## 跳转到某个路由时,带上参数
 

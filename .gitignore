@@ -44,3 +44,4 @@ public/deploy/
 Gemfile.lock
 _book
 node_modules
+*pdf

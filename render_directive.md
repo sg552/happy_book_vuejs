@@ -1,11 +1,8 @@
 # 视图中的循环v-for,判断v-if
 
-Vuejs的视图,使用了专门的一些语法(directive). 下面分别来说.
+Vuejs的视图,使用了"指令"(directive). 下面分别来说.
 
-注意: 无论是v-if 还是v-for, 都要与某个标签结合使用. 这点跟JSP, PHP, Rails很不同.
-
-
-
+注意: 无论是`v-if` 还是`v-for`, 都要与某个标签结合使用. 这点跟JSP, PHP, Rails很不同.
 
 ## 循环: v-for
 

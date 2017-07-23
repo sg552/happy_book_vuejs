@@ -150,7 +150,7 @@ export default {
 ```
 实际上，上面代码中，　
 
-- `data`方法，是用于＂声明页面会出现的变量＂，并且赋予初识值，
+- `data`方法，是用于＂声明页面会出现的变量＂，并且赋予初识值.(非常重要，切记这一点)
 - `mounted` 表示页面被vue渲染好之后的钩子方法，会立刻执行．
 
 所以，我们要把发送http的请求，写到mounted方法中．（钩子方法还有created, 我们可以暂且认为
@@ -169,12 +169,12 @@ mounted方法与created方法基本一样，一般我们在Vue 2.0中都使用mo
 
 上面代码中：
 
-`this.$http` 中的
-- this, 表示当前的vue组件（也即 BookList.vue)
-- $http:  所有以 `$`开头的变量，都是vue的特殊变量，往往是vue框架自带． 这里的$http就是可以发起http
+- `this.$http` 中的
+- `this` 表示当前的vue组件（也即 BookList.vue)
+- `$http` 所有以 `$`开头的变量，都是vue的特殊变量，往往是vue框架自带． 这里的$http就是可以发起http
 请求的对象.
-- $http.get  是一个方法，可以发起get 请求．　只有一个参数就是目标url,
-- then() 方法，来自于promise, 可以把异步的请求写成普通的非异步形式．
+- `$http.get`  是一个方法，可以发起get 请求．　只有一个参数就是目标url,
+- `then()` 方法，来自于promise, 可以把异步的请求写成普通的非异步形式．
 第1个参数是成功后的callback,
 第2个参数是失败后的callback．
 - `this.blogs = response.body.blogs` 中，是把远程返回的结果（json ），赋予到本地．　由于javascript
@@ -183,15 +183,15 @@ mounted方法与created方法基本一样，一般我们在Vue 2.0中都使用mo
 然后，我们有：
 
 ```
-      <tr v-for="blog in blogs">
-        <td>{{blog.title }}</td>
-      </tr>
+<tr v-for="blog in blogs">
+  <td>{{blog.title }}</td>
+</tr>
 ```
 
 上面的代码中，　
 - `v-for`是一个循环语法，可以把<tr>这个元素进行循环． 注意：这个叫directive,　指令，
 需要跟标签一起使用．
-- "blog in blogs": 前面的 `blog` 是一个临时变量，用于遍历使用．
+- `blog in blogs`: 前面的 `blog` 是一个临时变量，用于遍历使用．
 后面的`blogs` 是http 请求成功后，　`this.blogs = ... ` 这个变量．
 同时，这个`this.blogs` 是声明于　`data`钩子方法中．
 - \{\{blog.title}} 用来显示每个blog.title的值

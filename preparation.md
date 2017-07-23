@@ -34,19 +34,19 @@ source ~/.nvm/nvm.sh
 
 ## 使用
 
-1. 列出所有可以安装的版本：
+1.列出所有可以安装的版本：
 
 ```
 $ nvm list-remote
 ```
 
-2. 列出本地安装好了的版本：
+2.列出本地安装好了的版本：
 
 ```
 $ nvm list
 ```
 
-3. 安装：
+3.安装：
 
 ```
 $ nvm install v0.10.37
@@ -93,7 +93,7 @@ $ nvm use 6.9.1
 $ NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist nvm install
 ```
 
-## 用cnpm安装vue, vue-cli, vue-router等等 ( vue-router > 2.0)
+## 用cnpm代替 npm 命令。
 
 npm 是 node package manager.
 

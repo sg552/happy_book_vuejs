@@ -4,7 +4,8 @@
 
 在使用Vuejs之前， 我考察过angular， react， meteor, 这几个框架都不行。
 
-要么是学习曲线陡峭，概念复杂，例如angular， 要么就算编码风格不太好，例如 meteor, react,
+要么是学习曲线陡峭，概念复杂，例如angular， 要么就是编码风格不太好，前后端代码写一起，
+例如 meteor, react.
 
 而Vuejs是当时在stackoverflow等外国技术站点上被一致看好的技术。
 
@@ -34,7 +35,9 @@
 
 联系方式：　　申思维　　　shensiwei@sina.com   http://siwei.me
 
-本书使用gitbook写就，可以自行编译, git地址： https://github.com/sg552/happy_book_vuejs
+本书使用gitbook写就，可以自行编译, (安装环境和编译命令，参考：http://siwei.me/blog/posts/gitbook-gitbook)
+
+本书源代码地址： https://github.com/sg552/happy_book_vuejs
 
 欢迎随意转载, 让更多的人学会Vuejs这种更加简单高效的技术。
 

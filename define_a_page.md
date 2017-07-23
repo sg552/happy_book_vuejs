@@ -64,7 +64,7 @@ export default {
 
 - `<template></template>` 代码块中,表示的是 HTML模板.
 - `<script>`表示的是 js 代码. 所有的js代码都写在这里.
-- `<style>`表示所有的 CSS/scss/less 文件都可以写在这里.
+- `<style>`表示所有的 CSS/SCSS/SASS 文件都可以写在这里.
 
 ## 为页面增加一些样式
 
@@ -93,6 +93,8 @@ export default {
 }
 </style>
 ```
+
+注意上面代码中的　`<style>`标签，里面跟普通的CSS一样定义了样式。
 
 可以看到, 文字加了颜色, 如下图:
 
