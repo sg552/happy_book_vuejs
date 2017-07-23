@@ -94,7 +94,7 @@ vendor.33c767135f1684f458a7.js                  100%  119KB 118.7KB/s   00:00
 
 ### 2. 配置远程服务器
 
-登陆远程服务器:
+2.1 登陆远程服务器:
 
 ```
 $ ssh root@123.255.255.23 -p 6666
@@ -107,13 +107,13 @@ root@my_server:~#
 
 ```
 
-把刚才上传的文件夹重命名成: vue_demo:
+2.2 把刚才上传的文件夹重命名成: `vue_demo`:
 
 ```
 # mv /opt/app/dist /opt/app/vue_demo
 ```
 
-配置nginx, 使 域名: `vue_demo.siwei.me` 指向该位置:
+2.3 配置nginx, 使 域名: `vue_demo.siwei.me` 指向该位置:
 
 把下面代码,加入到nginx的配置文件中(`/etc/nginx/nginx.conf`)
 
@@ -136,7 +136,9 @@ nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-可以看到,没问题.然后重启nginx :
+可以看到,没问题.
+
+2.4 然后重启nginx :
 
 ```
 # nginx -s stop
@@ -148,7 +150,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 nginx跑起来之后, 我们就要配置域名. 否则无法访问.
 
-我们需要增加个二级域名:  vue_demo.siwei.me
+3.1 我们需要增加个二级域名:  vue_demo.siwei.me
 
 以dnspod为例, 需要设置这个二级域名的: A记录. IP地址:
 
@@ -156,7 +158,7 @@ nginx跑起来之后, 我们就要配置域名. 否则无法访问.
 
 保存.
 
-回到命令行, 输入 ping 命令,确认:
+3.2 回到命令行, 输入 ping 命令,确认:
 
 ```
 $ ping vue_demo.siwei.me
@@ -172,4 +174,4 @@ PING vue_demo.siwei.me (123.57.235.33) 56(84) bytes of data.
 
 打开浏览器, 访问 http://vue_demo.siwei.me 即可看到:
 
-![](./images/..)
+![vuejs_vue_demo](./images/vuejs_vue_demo.siwei.me.png)

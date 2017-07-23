@@ -7,9 +7,9 @@
 
 假设，我们在远程有个接口，可以接受别人的留言：
 
-- URL: `http://siwei.me/interface/blogs/add_comment`
-- 参数：　content:  留言的内容．
-- 请求方式： POST
+- URL: http://siwei.me/interface/blogs/add_comment
+- 参数：　`content`:  留言的内容．
+- 请求方式： `POST`
 - 返回结果：
 
 ```

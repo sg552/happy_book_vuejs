@@ -46,7 +46,9 @@ $ npm run dev
 ![错误提示,来自于dev tool](./images/vuejs_console_error.png)
 
 ```
-vue.esm.js?65d7:434 [Vue warn]: Property or method "博客详情页" is not defined on the instance but referenced during render. Make sure to declare reactive data properties in the data option.
+vue.esm.js?65d7:434 [Vue warn]: Property or method "博客详情页" is not defined on
+the instance but referenced during render. Make sure to declare reactive data
+properties in the data option.
 
 found in
 
@@ -80,8 +82,11 @@ found in
   <template>
   <script>
   </script>
-  - Component template should contain exactly one root element. If you are using v-if on multiple elements, use v-else-if to chain them instead.
-  - Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as <script>, as they will not be parsed.
+  - Component template should contain exactly one root element. If you are using v-if
+  on multiple elements, use v-else-if to chain them instead.
+  - Templates should only be responsible for mapping the state to the UI. Avoid
+  placing tags with side-effects in your templates, such as <script>, as they
+  will not be parsed.
   - tag <template> has no matching end tag.
 ```
 
@@ -99,4 +104,5 @@ found in
 @ multi ./build/dev-client ./src/main.js
 ```
 
-这里是调用栈. 可以看到,出现错误在于 最上面的 Logo.vue, 第六行第二列.
+这里是调用栈. 可以看到,`@ ./src/components/Logo.vue 6:2-177`, 所以错误在于
+Logo.vue, 第六行第二列.

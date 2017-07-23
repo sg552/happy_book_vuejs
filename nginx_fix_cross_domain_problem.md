@@ -6,7 +6,7 @@
 
 我们的真正后台接口是:
 
-`http://siwei.me/interface/blogs/all`
+http://siwei.me/interface/blogs/all
 
 如下:
 
@@ -80,16 +80,15 @@ Origin 'http://vue_demo.siwei.me' is therefore not allowed access.
 
 ![跨域问题](./images/vuejs_跨域问题.gif)
 
-
 ## 解决域名问题好跨域问题
 
-1. 在代码端, 处理方式不变, 访问 '/api' + 原域名:
+1.在代码端, 处理方式不变, 访问 `/api` + 原接口url:
 
 ```
 this.$http.get('/api/interface/blogs/all')...
 ```
 
-2. 在开发的时候, 继续保持vuejs 的代理存在. 配置代码如下:
+2.在开发的时候, 继续保持vuejs 的代理存在. 配置代码如下:
 
 ```
 proxyTable: {
@@ -103,7 +102,7 @@ proxyTable: {
 },
 ```
 
-3. 在nginx的配置文件中,加入代理:
+3.在nginx的配置文件中,加入代理:(详细说明见代码中的注释)
 
 ```
   server {
@@ -113,12 +112,12 @@ proxyTable: {
     charset utf-8;
     root /opt/app/vue_demo;
 
-		# 第一步,把所有的 mysite.com/api/interface  转换成:   mysite.com/interface
+    # 第一步,把所有的 mysite.com/api/interface  转换成:   mysite.com/interface
     location /api {
       rewrite    ^(.*)\/api(.*)$    $1$2;
     }
 
-		# 第二步，　把所有的 mysite.com/interface 的请求，转发到 siwei.me/interface
+    # 第二步，　把所有的 mysite.com/interface 的请求，转发到 siwei.me/interface
     location /interface {
       proxy_pass          http://siwei.me;
     }
