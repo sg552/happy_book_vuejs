@@ -36,7 +36,7 @@ export default {
 ```
 <template>
   <div>
-    {{hi("from view")}}
+    {% raw %}{{{% endraw %}hi("from view")}}
   </div>
 </template>
 
