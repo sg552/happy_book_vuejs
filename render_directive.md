@@ -18,8 +18,30 @@
 
 所以，我们在开发一个Vuejs项目的时候，会看到大量的Directive。 这里的基础务必打好。
 
-## 循环: v-for
+## 前提: 在directive中要使用表达式(Expression) 
 
+- 表达式：  a > 1    （有效）
+- 普通的语句：   a = 1  ; （这是个声明，不会生效）
+- 流控制语句：  return a;  （不会生效）
+
+在所有的Directive中，都只能使用表达式。
+
+正确的：
+
+```
+
+<div v-if="a > 100">
+</div>
+```
+
+错误的： 
+
+```
+<div v-if="return false">
+</div>
+```
+
+## 循环: v-for
 
 完整的例子如下：
 
@@ -168,6 +190,40 @@ data: {
 
 ## v-bind
 
+`v-bind`指令用于把某个属性绑定到对应的元素的属性。 请看例子： 
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p v-bind:style="'color:' + my_color">Vuejs 学起来好开心~ </p>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				my_color: 'green'
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+在上面的代码中，可以看到， 通过 `v-bind`, 把`<p>`元素的style的值，绑定成了 `'color:' + my_color ` 这个表达式。 
+当 `my_color` 的值发生变化的时候， 对应`<p>`的颜色就会发生变化。 
+
+例如： 默认页面打开后， 是绿色的。 如下图所示：
+
+![v-bind的效果](./images/directive-v-bind-before.png)
+
+如何知道变量`my_color` 已经绑定到了 `<p>` 上了呢？ 我们在 console中做修改， 让 `app.my_color = "red"`, 就可以看到对应的文字的颜色，变成了红色，
+如下图所示：
+
+![v-bind修改后的效果](./images/directive-v-bind-after.png)
 
 
 ## v-on

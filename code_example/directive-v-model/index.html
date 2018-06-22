@@ -4,13 +4,15 @@
 </head>
 <body>
 	<div id='app'>
-		<p v-bind:style="'color:' + my_color">Vuejs 学起来好开心~ </p>
+		<p> 你好， {{name}} ! </p>
+		<input type='text' v-model="name" />
 	</div>
 	<script>
 		var app = new Vue({
 			el: '#app',
 			data: {
-				my_color: 'green'
+				// 下面一行代码不能省略。 这里声明了 name 这个变量
+				name: 'Vuejs（默认)'
 			}
 		})
 	</script>
