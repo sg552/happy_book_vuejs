@@ -78,7 +78,7 @@
 <body>
 	<div id='app'>
 		<p> 原始字符串： {{my_text}} </p>
-		<p> 通过运算后得到的字符串： {{my_computed_text() }} </p>
+		<p> 通过运算后得到的字符串： {% raw %}{{{% endraw %}my_computed_text() }} </p>
 	</div>
 	<script>
 		var app = new Vue({
