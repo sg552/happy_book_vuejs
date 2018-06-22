@@ -2,6 +2,8 @@
 * [为什么要学习Vuejs? ]
   * [单页应用](single_page_app.md)
   * [哪些知名项目用到Vuejs](vuejs_projects.md)
+  * [Vuejs 初体验](hello_world_bare_vuejs.md)
+
 * [基本知识](vuejs_basic.md)
   * [如何学习文档](how_to_read_vuejs_document.md)
   * [搭建环境与hello world](preparation.md)
