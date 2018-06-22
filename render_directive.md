@@ -166,8 +166,9 @@ data: {
 
 ![v-for与 v-if的结合使用](./images/directive-v-for-and-v-if.png)
 
-
 ## v-bind
+
+
 
 ## v-on
 
@@ -224,4 +225,68 @@ data: {
 - keydown   （键盘动作： 按下任意键) 
 - keyup     (键盘动作： 释放任意键)
 
+### v-on的简写
+
+`v-on:click` 往往会写成 `@click`,   `v-on:dblclick` 也会写成 `@dblclick` , 所以同学们看代码的时候要了解~
+
 ## v-model
+
+`v-model` 往往用来做“双向绑定” ( two way binding) ， 这个双向绑定的含义是： 
+
+1. 可以通过表单（用户手动输入的值） 来修改某个变量的值
+2. 可以通过程序的运算 来修改某个变量的值， 并且影响页面的展示。 
+
+下面是完整的页面源代码： 
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 你好， {% raw %}{{{% endraw %}name}} ! </p>
+		<input type='text' v-model="name" />
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				// 下面一行代码不能省略。 这里声明了 name 这个变量
+				name: 'Vuejs（默认)'
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+上面的代码中， 可以看到，我们: 
+
+1. 使用了  `<input type='text' v-model="name" />`  来把 变量 `name` 绑定在了 `<input>` 这个输入框上（可以在这里看到`name`的值)
+2. 使用了 `<p> 你好， {% raw %}{{{% endraw %}name}} ! </p>` 来把变量 `name` 也显示在 页面上。
+3. 在初始化中， 使用 `data: { name: '...' }` 的方式， 对变量 `name` 进行了初始化。
+
+使用浏览器打开该html页面， 可以看到，最初的状态如下图所示： 
+
+![状态1： 默认状态](./images/directive-v-model-before.png)
+
+可以看到， 上图中的文字显示的是：  “你好， Vuejs! ”
+
+然后，我们在输入框中，把内容改成：  “Vuejs 和 Webpack”, 于是页面就发生了变化，如下图所示：
+
+![状态2： 通过表单输入来改变变量的值](./images/directive-v-model-after-1-by-input.png)
+
+这样就说明，我们通过输入框来改变某个变量的值，是成功的。  
+
+然后，我们打开浏览器的“开发者工具”  （建议用Chrome, Chrome下的操作方式是： 按F12) 。 在console中输入： `app.name = "明日Vuejs高手"`, 
+就会看到下图所示： 
+
+![状态3： 通过运算改变变量的值](./images/directive-v-model-after-2-by-console.png)
+
+这样就说明，我们通过运算来改变某个变量的值，是成功的。  
+
+
+
+
+
