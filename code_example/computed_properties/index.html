@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 原始字符串： {{my_text}} </p>
+		<p> 通过运算后得到的字符串： {{my_computed_text}} </p>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				my_text: 'good good study, day day up'
+			},
+			computed: {
+				my_computed_text: function(){
+					// 先去掉逗号，然后按照空格分割成数组，然后翻转，并用'-'来连接
+					return this.my_text.replace(',', '').split(' ').reverse().join('-')
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
+

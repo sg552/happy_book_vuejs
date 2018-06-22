@@ -32,6 +32,7 @@
 * [进阶知识](advanced_vue.md)
   * [使用component](component.md)
   * [使用mixin](mixin.md)
+  * [使用computed属性](computed_properties_and_watchers.md)
   * [vuex](vuex.md)
   * [生命周期](life_cycle.md)
   * [最佳实践](best_practices.md)
