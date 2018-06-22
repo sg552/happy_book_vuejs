@@ -6,26 +6,73 @@
 
 但是由于 Vuejs 是一种框架，所以它的稍微特殊一些，只能与标签做结合使用。 叫做Directive. (指令)
 
-我们之前看到的 `v-click`, `v-bind` 等，以`v`开头的，都是Directive. 
+我们之前看到的 `v-on`, `v-bind` 等，以`v`开头的，都是Directive. 
 
+原理： 
+
+1. 用户在浏览器中输入网址，回车. 
+2. 浏览器加载所有的资源（js, html内容。） 此时尚未解析。
+3. 浏览器加载Vuejs  
+4. Vuejs程序被执行， 发现 页面中的 `Directive`, 进行相关的解析
+5. HTML中的内容被替换。 展现给用户。
+
+所以，我们在开发一个Vuejs项目的时候，会看到大量的Directive。 这里的基础务必打好。
 
 ## 循环: v-for
 
-```
-<tr v-for="blog in blogs">
-  <td >{{blog.title }}</td>
-</tr>
-```
 
-上面代码,会被渲染成:
+完整的例子如下：
 
 ```
-<tr>
-  <td>...</td>
-  <td>...</td>
-  <td>...</td>
-</tr>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p>Vuejs周边的技术生态有： <p>
+		<br/>
+		<ul>
+			<li v-for="tech in technologies">
+				{% raw %}{{{% endraw %}tech}}
+			</li>
+		</ul>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {	
+				technologies: [
+					"nvm", "npm", "node", "webpack", "ecma_script"
+				]
+			}
+		})
+	</script>
+</body>
+</html>
 ```
+
+可以注意到，上面代码中的 `technologies`是在`data` 中被定义的： 
+
+```
+data: {	
+	technologies: [
+		"nvm", "npm", "node", "webpack", "ecma_script"
+	]
+}
+```
+
+然后在下面代码中， 被循环显示: 
+
+```
+<li v-for="tech in technologies">
+	{{tech}}
+</li>
+```
+
+用浏览器打开上面代码后，如下图所示： 
+
+![v-for循环](./images/directive-v-for.png)
 
 ## 判断: v-if
 
@@ -49,8 +96,6 @@
 
 当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。
 
-
-## v-click 
 
 ## v-bind
 
