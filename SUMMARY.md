@@ -4,7 +4,6 @@
   * [哪些知名项目用到Vuejs](vuejs_projects.md)
 * [原生Vuejs项目](origin_vuejs.md)
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
-  * [Vuejs 
   * [搭建环境与hello world](preparation.md)
 
 * [基本知识](vuejs_basic.md)
@@ -24,15 +23,16 @@
   * [双向绑定](v_bind.md)
   * [表单的绑定](form.md)
   * [表单的提交](form_submit.md)
+  * [使用component](component.md)
 * [部署和发布](build_and_deploy.md)
   * [打包和部署](build_project.md)
   * [在nginx上配置，解决跨域问题](nginx_fix_cross_domain_problem.md)
   * [如何debug](how_to_debug.md)
   * [基本命令( vue, vue-cli)](basic_command_line.md)
 * [进阶知识](advanced_vue.md)
-  * [使用component](component.md)
   * [使用mixin](mixin.md)
   * [使用computed属性](computed_properties_and_watchers.md)
+  * [component进阶]
   * [vuex](vuex.md)
   * [生命周期](life_cycle.md)
   * [最佳实践](best_practices.md)
@@ -42,7 +42,8 @@
   * [npm 与node]
   * [vue-devtools]
   * [webpack]
-  * [em2015...]
+  * [em2015]
+  * [查看Vuejs API](how_to_check_api.md)
 
 * [学习资源]
   * [官方网站]
