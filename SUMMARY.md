@@ -1,9 +1,13 @@
 * [前言](preface.md)
-* [单页应用](single_page_app.md)
-* [哪些知名项目用到Vuejs](vuejs_projects.md)
+* [为什么要学习Vuejs? ]
+  * [单页应用](single_page_app.md)
+  * [哪些知名项目用到Vuejs](vuejs_projects.md)
 * [基本知识](vuejs_basic.md)
   * [如何学习文档](how_to_read_vuejs_document.md)
   * [搭建环境与hello world](preparation.md)
+
+* [web开发实战]
+  * [原始的vue, webpack下的vue]
   * [项目文件夹基本结构](file_structure.md)
   * [定义一个页面](define_a_page.md)
   * [语法简写说明](es_script.md)
@@ -28,3 +32,14 @@
   * [vuex](vuex.md)
   * [生命周期](life_cycle.md)
   * [最佳实践](best_practices.md)
+  * [TODO emit](emit.md)
+* [相关工具](tools.md)
+  * [npm 与node]
+  * [vue-devtools]
+  * [webpack]
+  * [em2015...]
+
+* [学习资源]
+  * [官方网站]
+  * [github/论坛？]
+  * [google搜索的方式]
