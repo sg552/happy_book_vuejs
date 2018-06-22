@@ -226,6 +226,36 @@ data: {
 ![v-bind修改后的效果](./images/directive-v-bind-after.png)
 
 
+对于所有的属性，都可以使用 `v-bind`, 例如： 
+
+```
+<div v-bind:style='...'>  
+</div>
+```
+
+会生成： 
+```
+<div style='...'>  </div>
+```
+
+```
+<div v-bind:class='...'> </div>
+```
+
+会生成： 
+```
+<div class='...'>  </div>
+```
+
+```
+<div v-bind:id='...'> </div>  
+```
+
+会生成： 
+```
+<div id='...'>  </div>
+```
+
 ## v-on
 
 `v-on` 指令用于触发事件。  例如： 
