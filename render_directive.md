@@ -1,8 +1,13 @@
-# 视图中的循环v-for,判断v-if
+# 视图中的Directive (指令)
 
-Vuejs的视图,使用了"指令"(directive). 下面分别来说.
+我们在学习java的时候，知道有jsp 页面， 对于.net语言，有 .asp, aspx页面， 对于ruby, 有erb这样的页面。
 
-注意: 无论是`v-if` 还是`v-for`, 都要与某个标签结合使用. 这点跟JSP, PHP, Rails很不同.
+在Vuejs中，我们也有类似的编程能力。 
+
+但是由于 Vuejs 是一种框架，所以它的稍微特殊一些，只能与标签做结合使用。 叫做Directive. (指令)
+
+我们之前看到的 `v-click`, `v-bind` 等，以`v`开头的，都是Directive. 
+
 
 ## 循环: v-for
 
@@ -43,3 +48,65 @@ Vuejs的视图,使用了"指令"(directive). 下面分别来说.
 ## v-if 与 v-for 的优先级
 
 当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。
+
+
+## v-click 
+
+## v-bind
+
+## v-on
+
+`v-on` 指令用于触发事件。  例如： 
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		{{ message }}
+		<br/>
+		<button v-on:click='highlight' style='margin-top: 50px'>真的吗</button>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				message: '学习Vuejs使我快乐~ '
+			},
+			methods:  {
+				highlight: function() {
+					this.message = this.message + '是的， 工资还会涨~!'
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
+```
+
+上面的代码中， 通过`v-on:click` 的声明，当 <button> 被点击(click)后，就会触发  `highlight` 这个方法。 
+
+点击前的页面: 
+
+![点击前](./images/directive-v-on-click-before.png)
+
+点击后的页面: 
+
+![点击后](./images/directive-v-on-click-after.png)
+
+
+`v-on` 后面可以接HTML的标准事件， 例如： 
+
+- click  （单击 鼠标左键）
+- dblclick (双击鼠标左键)
+- contextmenu (单机鼠标右键)
+- mouseover  (指针移到有事件监听的元素或者它的子元素内)
+- mouseout   (指针移出元素，或者移到它的子元素上)
+- keydown   （键盘动作： 按下任意键) 
+- keyup     (键盘动作： 释放任意键)
+
+## v-model

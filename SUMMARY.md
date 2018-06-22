@@ -16,7 +16,7 @@
   * [语法简写说明](es_script.md)
   * [页面渲染过程](how_is_page_rendered.md)
   * [视图中的渲染](view_basic.md)
-  * [视图中的循环和判断](render_directive.md)
+  * [Vuejs的模板语言(循环，条件判断等) ](render_directive.md)
   * [发送http请求](http_request.md)
   * [页面间的参数传递](parse_paremters.md)
   * [路由](router.md)
@@ -36,6 +36,7 @@
   * [生命周期](life_cycle.md)
   * [最佳实践](best_practices.md)
   * [TODO emit](emit.md)
+  * [事件Event](event.md)
 * [相关工具](tools.md)
   * [npm 与node]
   * [vue-devtools]
