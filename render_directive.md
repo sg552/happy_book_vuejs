@@ -76,25 +76,52 @@ data: {
 
 ## 判断: v-if
 
+条件Directive, 是由 `v-if`, `v-else-if`, `v-else` 配合完成的。 下面是个完整的例子： 
 
 ```
-<div v-if="type === 'A'">
-  A
-</div>
-<div v-else-if="type === 'B'">
-  B
-</div>
-<div v-else-if="type === 'C'">
-  C
-</div>
-<div v-else>
-  Not A/B/C
-</div>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p>我们要使用的技术是： <p>
+
+		<div v-if="name === 'vuejs'">
+			Vuejs !
+		</div>
+		<div v-else-if="name === 'angular'">
+			Angular
+		</div>
+		<div v-else>
+			React
+		</div>		
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {	
+				name: 'vuejs'
+			}
+		})
+	</script>
+</body>
+</html>
 ```
+
+注意，
+
+上面的代码中，  `v-if` 后面的引号中，是 `name === 'vuejs'`, `===` 是 Ecmascript 的语言， 表示严格的判断。 
+（由于js的 `==` 有先天的缺陷，所以我们在95%的情况下， 都是用 三个等号的形式) 
+
+
+用浏览器打开上面代码后，如下图所示： 
+
+![v-if 判断](./images/directive-v-if.png)
 
 ## v-if 与 v-for 的优先级
 
-当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。
+当 `v-if` 与 `v-for` 一起使用时，`v-for` 具有比 `v-if` 更高的优先级。 也就是说，Vuejs 会先执行 `v-for`, 再执行 `v-if` . 
 
 
 ## v-bind

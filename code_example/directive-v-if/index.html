@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p>我们要使用的技术是： <p>
+
+		<div v-if="name === 'vuejs'">
+			Vuejs !
+		</div>
+		<div v-else-if="name === 'angular'">
+			Angular
+		</div>
+		<div v-else>
+			React
+		</div>		
+
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {	
+				name: 'vuejs'
+			}
+		})
+	</script>
+</body>
+</html>
+
