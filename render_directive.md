@@ -123,6 +123,49 @@ data: {
 
 当 `v-if` 与 `v-for` 一起使用时，`v-for` 具有比 `v-if` 更高的优先级。 也就是说，Vuejs 会先执行 `v-for`, 再执行 `v-if` . 
 
+下面是个完整的例子：
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 全部的技术是： {{technologies}} </p>
+		<p> v-for 与 v-if 的结合使用, 只打印出 以"n"开头的技术： <p>
+		<ul>
+			<li v-for="tech in technologies" v-if="tech.indexOf('n') === 0">
+				{% raw %}{{{% endraw %}tech}}
+			</li>
+		</ul>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {	
+				technologies: [
+					"nvm", "npm", "node", "webpack", "ecma_script"
+				]
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+可以看到， 在下面的代码中， `v-if` 与 `v-for`结合使用了， 先是做了循环 `tech in technologies`，然后对当前的 循环对象 `tech` 做了判断： 
+
+```
+<li v-for="tech in technologies" v-if="tech.indexOf('n') === 0">
+	{% raw %}{{{% endraw %}tech}}
+</li>
+```
+
+用浏览器打开上面代码后，如下图所示： 
+
+![v-for与 v-if的结合使用](./images/directive-v-for-and-v-if.png)
+
 
 ## v-bind
 

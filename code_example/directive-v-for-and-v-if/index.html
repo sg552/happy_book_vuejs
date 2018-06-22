@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 全部的技术是： {{technologies}} </p>
+		<p> v-for 与 v-if 的结合使用, 只打印出 以"n"开头的技术： <p>
+		<ul>
+			<li v-for="tech in technologies" v-if="tech.indexOf('n') === 0">
+				{{tech}}
+			</li>
+		</ul>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {	
+				technologies: [
+					"nvm", "npm", "node", "webpack", "ecma_script"
+				]
+			}
+		})
+	</script>
+</body>
+</html>
+
