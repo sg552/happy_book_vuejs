@@ -1,7 +1,9 @@
 * [前言](preface.md)
-* [为什么要学习Vuejs? ]
-  * [单页应用](single_page_app.md)
-  * [哪些知名项目用到Vuejs](vuejs_projects.md)
+* [为什么要学习Vuejs? ](why_vue.md)
+  * [什么是单页应用](single_page_app.md)
+  * [与React, Angular的对比](vue_react_angular.md)
+  * [可以无缝上手微信小程序]
+  * [使用Vuejs的知名项目和公司](vuejs_projects.md)
 * [原生Vuejs项目](origin_vuejs.md)
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
   * [搭建环境与hello world](preparation.md)
