@@ -32,12 +32,13 @@
 * [进阶知识](advanced_vue.md)
   * [使用mixin](mixin.md)
   * [使用computed属性](computed_properties_and_watchers.md)
-  * [component进阶]
+  * [component进阶](advanced_component.md)
   * [vuex](vuex.md)
   * [生命周期](life_cycle.md)
   * [最佳实践](best_practices.md)
   * [TODO emit](emit.md)
   * [事件Event](event.md)
+  * [与Sass结合使用]
 * [相关工具](tools.md)
   * [npm 与node]
   * [vue-devtools]
