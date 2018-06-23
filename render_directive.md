@@ -6,7 +6,7 @@
 
 但是由于 Vuejs 是一种框架，所以它的稍微特殊一些，只能与标签做结合使用。 叫做Directive. (指令)
 
-我们之前看到的 `v-on`, `v-bind` 等，以`v`开头的，都是Directive. 
+我们之前看到的 `v-on`, `v-bind`, `v-if`, `v-for` 等等，只要是以`v`开头的，都是Directive. 
 
 原理： 
 
