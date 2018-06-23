@@ -9,9 +9,11 @@ vue: 2.0+
 
 整体来讲，只要能安装上node 和 vuejs就可以。nvm在windows下可以不安装。
 
-# 安装nvm
+## 安装nvm 和 node 
 
-
+```
+$ 
+```
 
 # 安装git
 
