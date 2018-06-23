@@ -111,7 +111,7 @@
 所以， 我们需要按照实际情况，来选择是使用 "computed properties" ， 还是使用普通function的形式。
 
 
-## computed property 与 watched property 的区别
+## watched property
 
 Vuejs 中的property(属性)， 是可以要么根据计算发生变化（computed) , 要么根据监听（watch)其他的变量的变化而发生变化
 
@@ -208,7 +208,7 @@ Vuejs 中的property(属性)， 是可以要么根据计算发生变化（comput
 
 可以看到， 方法少了一个 ， `data`中定义的属性也少了一个，简洁了不少。 代码简洁，维护起来就容易（代码量越少，程序越好理解）
 
-## 为 computed property 赋值。
+## 为 computed property 的setter （赋值函数) 
 
 原则上来说， computed property 是根据其他的值，经过计算得来的。 是不应该被修改的。
 
