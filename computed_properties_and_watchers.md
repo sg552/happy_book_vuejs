@@ -110,3 +110,100 @@
 
 所以， 我们需要按照实际情况，来选择是使用 "computed properties" ， 还是使用普通function的形式。
 
+
+## computed property 与 watched property 的区别
+
+Vuejs 中的property(属性)， 是可以要么根据计算发生变化（computed) , 要么根据监听（watch)其他的变量的变化而发生变化
+
+我们看一下，如何根据监听（watch) 其他的变量而自身发生变化的例子， 如下；
+
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 
+			我所在的城市： <input v-model='city' />（这是个watched property)
+		</p>
+		<p> 
+			我所在的街道： <input v-model='district' />（这是个watched property)
+		</p>
+		<p> 我所在的详细一些的地址： {{full_address}} （每次其他两个发生变化，这里就会跟着变化) </p>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				city: '北京市',
+				district: '朝阳区',
+				full_address: "某市某区"
+			},
+			watch: {
+				city: function(city_name){
+					this.full_address = city_name + '-' + this.district
+				},
+				district: function(district_name){
+					this.full_address = this.city + '-' + district_name
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
+```
+
+在上面的代码中， 可以看到， `watch: { city: ..., district: ...}`, 表示， `city` 和 `district` 都已经被监听了， 这两个都是 `watched properties`.
+
+只要`city` 和 `district`发生变化， `full_address` 就会跟着变化。 
+
+我们用浏览器打开上面的代码，如下图所示，此时 由于 `city` 和`district` 还没有发生变化，所以 `full_address`的值还是 "某市某区" ： 
+
+![被监听的属性](./images/watched_property.png)
+
+当我在 “街道” 的输入框， 后面加上 “望京街道” 几个字后，可以看到， 下面的“详细地址”， 就发生了变化。 如下图所示： 
+
+![发生了变化的监听属性](./images/watched_property_2.png)
+
+### 使用computed 会比watch 更加简洁
+
+上面的例子，我们可以使用 `computed` 来改写， 如下图所示： 
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 
+			我所在的城市： <input v-model='city' />（这是个watched property)
+		</p>
+		<p> 
+			我所在的街道： <input v-model='district' />（这是个watched property)
+		</p>
+		<p> 我所在的详细一些的地址： {{full_address}} （每次其他两个发生变化，这里就会跟着变化) </p>
+
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				city: '北京市',
+				district: '朝阳区',
+			},
+			computed: {
+				full_address: function(){
+					return this.city + this.district;
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+可以看到， 方法少了一个 ， `data`中定义的属性也少了一个，简洁了不少。 代码简洁，维护起来就容易（代码量越少，程序越好理解）

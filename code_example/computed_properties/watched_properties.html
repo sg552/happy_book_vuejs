@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 
+			我所在的城市： <input v-model='city' />（这是个watched property)
+		</p>
+		<p> 
+			我所在的街道： <input v-model='district' />（这是个watched property)
+		</p>
+		<p> 我所在的详细一些的地址： {{full_address}} （每次其他两个发生变化，这里就会跟着变化) </p>
+
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				city: '北京市',
+				district: '朝阳区',
+				full_address: "某市某区"
+			},
+			watch: {
+				city: function(city_name){
+					this.full_address = city_name + '-' + this.district
+				},
+				district: function(district_name){
+					this.full_address = this.city + '-' + district_name
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
+
