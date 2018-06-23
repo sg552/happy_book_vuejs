@@ -41,7 +41,7 @@
   * [与Sass结合使用]
 * [相关工具](tools.md)
   * [npm 与node]
-  * [vue-devtools]
+  * [vue-devtools](setup_vuejs_devtools.md)
   * [webpack]
   * [em2015]
   * [查看Vuejs API](how_to_check_api.md)

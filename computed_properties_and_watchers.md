@@ -180,12 +180,12 @@ Vuejs 中的property(属性)， 是可以要么根据计算发生变化（comput
 <body>
 	<div id='app'>
 		<p> 
-			我所在的城市： <input v-model='city' />（这是个watched property)
+			我所在的城市： <input v-model='city' />
 		</p>
 		<p> 
-			我所在的街道： <input v-model='district' />（这是个watched property)
+			我所在的街道： <input v-model='district' />
 		</p>
-		<p> 我所在的详细一些的地址： {{full_address}} （每次其他两个发生变化，这里就会跟着变化) </p>
+		<p> 我所在的详细一些的地址： {{full_address}} （这是使用computed 实现的版本) </p>
 
 	</div>
 	<script>
@@ -207,3 +207,75 @@ Vuejs 中的property(属性)， 是可以要么根据计算发生变化（comput
 ```
 
 可以看到， 方法少了一个 ， `data`中定义的属性也少了一个，简洁了不少。 代码简洁，维护起来就容易（代码量越少，程序越好理解）
+
+## 为 computed property 赋值。
+
+原则上来说， computed property 是根据其他的值，经过计算得来的。 是不应该被修改的。
+
+不过在开发中，确实有一些情况，需要对 "computed property" 做修改， 同时影响某些对应的属性。 （过程跟上面是相反的） . 
+
+我们看下面的代码： 
+
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<p> 
+			我所在的城市： <input v-model='city' />
+		</p>
+		<p> 
+			我所在的街道： <input v-model='district' />
+		</p>
+		<p> 我所在的详细一些的地址：	<input v-model='full_address' /> </p>
+
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				city: '北京市',
+				district: '朝阳区',
+			},
+			computed: {
+				full_address: {
+					get: function(){
+						return this.city + "-" + this.district;
+					},
+					set: function(new_value){
+						this.city = new_value.split('-')[0]
+						this.district = new_value.split('-')[1]
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+可以看出， 上面代码中，有这样一段：
+
+```
+computed: {
+	full_address: {
+		get: function(){
+			return this.city + "-" + this.district;
+		},
+		set: function(new_value){
+			this.city = new_value.split('-')[0]
+			this.district = new_value.split('-')[1]
+		}
+	}
+}
+```			
+
+可以看出， 上面的 `get` 代码段，就是原来的代码内容。 而 `set`端中，则定义了，如果 computed property (也就是 full_address) 发生变化的时候， 
+`city` 和 `district` 的值应该如何变化。 
+
+用浏览器打开后， 我们在 “最下方的输入框” 中，后面输入一些字，可以看到， 对应的 “街道”发生了变化： 
+
+![根据setter影响其他变量的例子](./images/computed_setter.png)
