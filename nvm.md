@@ -114,17 +114,19 @@ $ nvm alias default 0.10.32  # 把这句命令放到 ~/.bashrc 中。
 
 对于Windows, 则直接在控制面板中卸载软件就可以。 
 
-## 国内安装速度太慢的办法
+## 对于国内用户，加快下载速度的办法
 
-由于某些原因，在国内连接国外的服务器会比较慢，所以我们使用下面的命令，就可以在国内的镜像服务器下载node了。
+由于某些原因，在国内连接国外的服务器会比较慢，所以我们使用下面的命令，就可以在国内的镜像服务器下载node了。 感谢淘宝提供~ 
+
+方法1. 使用 `NVM_NODEJS_ORG_MIRROR` 这个变量作为前缀。
 
 ```
 $ NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist nvm install
 ```
 
-## 用cnpm代替 npm 命令。
+这个方法的优点是不需要做任何设置。 缺点是每次都需要加上这个前缀。 
 
-考虑到国内安装太慢，我们一般使用国内的镜像。 （感谢taobao提供）
+方法2. 用cnpm代替 npm 命令。 
 
 ```
 $ npm install -g cnpm --registry=https://registry.npm.taobao.org
