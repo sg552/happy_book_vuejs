@@ -49,7 +49,7 @@
   * [部署后的优化建议]
 
 * [相关工具](tools.md)
-  * [npm 与node](nvm.md)
+  * [nvm, npm 与node](nvm.md)
   * [vue-devtools](setup_vuejs_devtools.md)
   * [webpack]
   * [em2015]
