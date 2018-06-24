@@ -79,7 +79,7 @@ Event Handler 之所以会被Vuejs放到很高的地位，是基于这样的考�
 </head>
 <body>
 	<div id='app'>
-		您点击了： {{ count }} 次
+		您点击了：{% raw %}{{{% endraw %} count }} 次
 		<br/>
 		<button v-on:click='increase_count' style='margin-top: 50px'>  + 1 </button>
 	</div>
@@ -115,7 +115,7 @@ Event Handler 之所以会被Vuejs放到很高的地位，是基于这样的考�
 </head>
 <body>
 	<div id='app'>
-		{{ message }}
+		{% raw %}{{{% endraw %} message }}
 		<br/>
 		<button v-on:click='say_hi("明日的Vuejs大神")' style='margin-top: 50px'> 跟我打个招呼~ </button>
 	</div>
