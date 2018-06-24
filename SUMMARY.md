@@ -50,6 +50,7 @@
 
 * [相关工具](tools.md)
   * [nvm, npm 与node](nvm.md)
+  * [git](git.md)
   * [vue-devtools](setup_vuejs_devtools.md)
   * [webpack]
   * [em2015]
