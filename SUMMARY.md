@@ -31,7 +31,7 @@
   * [如何debug](how_to_debug.md)
   * [基本命令( vue, vue-cli)](basic_command_line.md)
 * [进阶知识](advanced_vue.md)
-  * [一定弄懂this的作用域]
+  * [js的作用域和this](scope_and_this.md)
   * [mixin](mixin.md)
   * [computed properties](computed_properties_and_watchers.md)
   * [component 高级知识](advanced_component.md)
@@ -49,8 +49,8 @@
   * [部署后的优化建议]
 
 * [相关工具](tools.md)
-  * [nvm, npm 与node](nvm.md)
-  * [git](git.md)
+  * [NVM, NPM 与Node](nvm.md)
+  * [Git](git.md)
   * [vue-devtools](setup_vuejs_devtools.md)
   * [webpack]
   * [em2015]

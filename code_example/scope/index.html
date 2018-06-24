@@ -1,0 +1,32 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		{{ message }}
+		<br/>
+		<button v-on:click='highlight' style='margin-top: 50px'>真的吗</button>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				message: 'this 是很重要的。 不要忘记它哟~'
+			},
+			methods:  {
+				highlight: function() {
+					// 报错： 
+					// message += '是的， 工资还会涨~!'
+
+					// 正确
+					this.message += '是的， 工资还会涨~!'
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
+

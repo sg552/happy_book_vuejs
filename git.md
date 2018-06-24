@@ -165,12 +165,5 @@ $
 
 这个就是唯一需要注意的点了。 
 
-其他的git 的基本知识( `git clone`, `git commit`, `git push`等) 就不在本书中说明了。
-
-
-
-
-
-
-
+其他的git 的基本知识( `git clone`, `git commit`, `git push`等) 就不在本书中赘述了。 对于没有掌握的同学，一定要赶紧学习这个技术。
 
