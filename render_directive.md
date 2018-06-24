@@ -311,6 +311,8 @@ data: {
 - keydown   （键盘动作： 按下任意键) 
 - keyup     (键盘动作： 释放任意键)
 
+对于 `v-on` 的更多说明，请看“Event” 的对应章节。
+
 ### v-on的简写
 
 `v-on:click` 往往会写成 `@click`,   `v-on:dblclick` 也会写成 `@dblclick` , 所以同学们看代码的时候要了解~

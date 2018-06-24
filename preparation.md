@@ -6,10 +6,9 @@ node: v6.9.1 (node > 6.0)
 
 vue: 2.0+
 
+总的来说，只要能安装上node 和 vuejs就可以。
 
-整体来讲，只要能安装上node 和 vuejs就可以。nvm在windows下可以不安装。
-
-## 安装nvm 和 node 
+## 安装NVM 和 node 
 
 ```
 $ 

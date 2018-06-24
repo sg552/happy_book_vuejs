@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		{{ message }}
+		<br/>
+		<button v-on:click='say_hi("明日的Vuejs大神")' style='margin-top: 50px'> 跟我打个招呼~ </button>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				message: "这是个 在click中调用 方法 + 参数的例子"
+			},
+			methods: {
+				say_hi: function(name){
+					this.message = "你好啊，" + name + "!"
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		您点击了： {{ count }} 次
+		<br/>
+		<button v-on:click='count += 1' style='margin-top: 50px'> + 1</button>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				count: 0
+			}
+		})
+	</script>
+</body>
+</html>
+
