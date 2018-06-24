@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		下面是一个非常全面的自定义Directive的例子： <br/>
+		<br/>
+		<input v-my-input:foo.click="say_hi" />
+	</div>
+	<script>
+		var a 
+		var app = new Vue({
+			el: '#app',
+			data: {
+				say_hi: '你好啊，我是个value'
+			},
+			directives: {
+				"my-input": {
+					bind: function(element, binding, vnode){
+						element.focus()
+						console.info("binding.name: " + binding.name)
+						console.info("binding.value: " + binding.value)
+						console.info("binding.expression: " + binding.expression)
+						console.info("binding.argument: " + binding.arg)
+						console.info("binding.modifiers: ")
+						console.info(binding.modifiers)
+						console.info("vnode keys:")
+						console.info(vnode)
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+

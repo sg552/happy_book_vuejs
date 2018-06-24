@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		下面是使用了自定义的Directive的input, 可以自动聚焦（ 调用 focus() 方法) : <br/>
+		<br/>
+		<input v-myinput/>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			directives: {
+				"myinput": {
+					inserted: function(element){
+						element.focus()
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+

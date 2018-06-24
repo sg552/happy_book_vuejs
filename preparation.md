@@ -10,37 +10,25 @@ vue: 2.0+
 
 ## 安装NVM 和 node 
 
-```
-$ 
-```
+请看对应章节。
 
-# 安装git
+## 安装git
 
-## windows下使用 git客户端。　
+请看对应章节。
 
-在这里直接下载：
-
-https://git-scm.com/download/win
-
-## linux下可以直接安装。
-
-ubuntu下可以直接：
-
-```
-$ apt-get install git
-```
-
-# 安装vuejs
+## 安装vuejs
 
 要同时安装 `vue`和 `vue-cli`这两个node package.
 
-`-g` 表示给他们安装成全局可以使用的包。
+运行下面这个命令：
 
 ```
-$ cnpm install vue vue-cli -g
+$ npm install vue vue-cli -g
 ```
 
-## 试运行 vue
+`-g` 表示这个包安装后可以被全局使用。 
+
+## 运行 vue
 
 创建一个基于 webpack 模板的新项目:
 
@@ -50,7 +38,7 @@ $ vue init webpack my-project
 
 注意： 我们使用Vue, 都是在 `webpack` 这个大前提下使用的。
 
-安装依赖, :
+安装依赖:
 
 ```
 $ cd my-project
@@ -66,8 +54,6 @@ $ npm run dev
 然后就可以看到 在本地已经跑起来了。
 
 ```
-$ npm run dev
-
 > test_vue_0613@1.0.0 dev /workspace/test_vue_0613
 > node build/dev-server.js
 
@@ -79,8 +65,6 @@ $ npm run dev
 > Listening at http://localhost:8080
 ```
 
-打开 `http://localhost:8080` 就可以看到。
-
-如下图：
+我们打开 `http://localhost:8080` 就可以看到刚才创建的项目欢迎页, 如下图所示：
 
 ![默认欢迎页](./images/vue_default_hello.jpg)

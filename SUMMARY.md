@@ -4,13 +4,14 @@
   * [与React, Angular的对比](vue_react_angular.md)
   * [被微信和淘宝所看重](wechat_and_weex.md)
   * [使用Vuejs的知名项目和公司](vuejs_projects.md)
-* [原生Vuejs项目](origin_vuejs.md)
+* [Vuejs项目](origin_vuejs.md)
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
+  * [安装前准备: NVM, NPM 与Node](nvm.md)
+  * [安装前准备: Git Bash](git.md)
   * [搭建环境与hello world](preparation.md)
-* [基本知识](vuejs_basic.md)
-  * [如何学习文档](how_to_read_vuejs_document.md)
-* [真实项目中的 Vuejs + Webpack]
-  * [原始的vue, webpack下的vue]
+  * [如何学习文档](how_to_read_vuejs_document.md)  
+* [真实项目中的 Vuejs + Webpack](vuejs_basic.md)
+  * [Webpack介绍]
   * [项目文件夹基本结构](file_structure.md)
   * [定义一个页面](define_a_page.md)
   * [语法简写说明](es_script.md)
@@ -41,7 +42,7 @@
   * [TODO emit](emit.md)
   * [事件Event](event.md)
   * [与Sass结合使用]
-  * [自定义Directive]
+  * [自定义Directive](custom_directive.md)
 
 * [实战周边]
   * [微信支付]
@@ -49,8 +50,6 @@
   * [部署后的优化建议]
 
 * [相关工具](tools.md)
-  * [NVM, NPM 与Node](nvm.md)
-  * [Git](git.md)
   * [vue-devtools](setup_vuejs_devtools.md)
   * [webpack]
   * [em2015]
