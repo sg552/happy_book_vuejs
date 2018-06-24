@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script>
+		Vue.config.keyCodes.f1 = 112
+	</script>
+</head>
+<body>
+	<div id='app'>
+		输入完毕后，按下回车键，就会<br/>
+		触发 "show_message" 事件~  <br/><br/>
+
+		<input v-on:keyup.f1="show_message" v-model="message" />
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				message: ''
+			}, 
+			methods: {
+				show_message: function(){
+					alert("您输入了：" + this.message)
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+

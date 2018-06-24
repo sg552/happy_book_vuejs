@@ -11,7 +11,7 @@
 		2. 不能是空字符串			<br/>
 		<input v-model="url" placeholder="请输入 http:// 开头的字符串, 否则不会跳转" /> <br/>
 		<br/>
-		<a v-bind:href="this.url" v-on:click='validate($event)'> 点我确定 </a>
+		<a v-bind:href="this.url" v-on:click='validate($event)' v-on:click.prevent='show_message'> 点我确定 </a>
 	</div>
 
 	<script>
@@ -23,11 +23,13 @@
 			methods: {
 				validate: function(event){
 					if(this.url.length == 0 || this.url.indexOf('http://') != 0){
-						alert("您输入的网址不符合规则。 无法跳转")
 						if(event){
 							event.preventDefault()
 						}   
 					}
+				},
+				show_message: function(){
+					alert("您输入的网址不符合规则。 无法跳转")
 				}
 			}
 		})

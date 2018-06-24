@@ -1,6 +1,12 @@
-# 事件处理 (Event)
+# Event Handler 事件处理
 
 Vuejs中的事件处理非常强大， 也非常重要。 我们一定要学好它。
+
+Event Handler 之所以会被Vuejs放到很高的地位，是基于这样的考虑： 
+
+1. 把跟事件相关的代码独立的写出来， 非常容易定位各种逻辑， 维护起来方便。 
+2. event handler 被独立出来之后， 页面的DOM元素看起来就会很简单。  容易理解。
+3. 当一个页面被关掉时，对应的ViewModel也会被回收。那么该页面定义的各种 event handler 也会被一并垃圾回收。 不会造成内存溢出。
 
 ## 支持的Event 
 
@@ -211,3 +217,148 @@ Vuejs中的事件处理非常强大， 也非常重要。 我们一定要学好�
 ![prevent-default例子2，不放行](./images/event_prevent_default2.png)
 
 进一步观察，页面也不会跳转（很好的解释了 这个时候 `<a/>` 标签点了也不起作用)
+
+### 5. Event Modifiers  事件修饰语
+
+我们很多时候，希望把代码写的优雅一些。 使用传统的方式，可能会把代码写的很臃肿。  如果某个元素在不同的event下有不同的表现，那么代码看起来就会有
+很多个 `if ...else ...` 这样的分支。 
+
+所以， Vuejs 提供了 "Event Modifiers"。
+
+例如，我们可以把上面的例子略加修改：
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+
+		请输入您想打开的网址,   	<br/>
+		判断规则是： 				<br/>
+		1. 务必以 "http://"开头 	<br/>
+		2. 不能是空字符串			<br/>
+		<input v-model="url" placeholder="请输入 http:// 开头的字符串, 否则不会跳转" /> <br/>
+		<br/>
+		<a v-bind:href="this.url" v-on:click='validate($event)' v-on:click.prevent='show_message'> 点我确定 </a>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				url: ''
+			}, 
+			methods: {
+				validate: function(event){
+					if(this.url.length == 0 || this.url.indexOf('http://') != 0){
+						if(event){
+							event.preventDefault()
+						}   
+					}
+				},
+				show_message: function(){
+					alert("您输入的网址不符合规则。 无法跳转")
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+可以看出，上面的代码的核心是：
+
+```
+<a v-bind:href="this.url" v-on:click='validate($event)' v-on:click.prevent='show_message'> 点我确定 </a>
+
+methods: {
+	validate: function(event){
+		if(this.url.length == 0 || this.url.indexOf('http://') != 0){
+			if(event){
+				event.preventDefault()
+			}   
+		}
+	},
+	show_message: function(){
+		alert("您输入的网址不符合规则。 无法跳转")
+	}
+}
+```
+
+先是在 `<a/>` 中定义了两个 click 事件，一个是 `click`, 一个是 `click.prevent`.  后者表示，如果该元素的click 事件被 阻止了的话， 应该触发什么动作。 
+
+然后，在 `methods` 代码段中，专门定义了 `show_message` , 用来给 `click.prevent` 所使用。
+
+上面的代码运行起来，跟前一个例子是一模一样的。 只是抽象分类的程度更高了一些。  在复杂的项目中有用处。
+
+这样的 "event modifier"，有这些： 
+
+- stop  propagation 被停止后（ 也就是调用了 event.stopPropagation()方法后 )，被触发 
+- prevent  调用了  event.preventDefault() 后被触发。
+- capture  子元素中的事件可以在该元素中 被触发。
+- self   事件的 event.target 就是本元素时，被触发。
+- once   该事件最多被触发一次。 
+- passive  为移动设备使用。 (在addEventListeners 定义时，增加passive选项。)
+
+以上的 "event modifier" 也可以连接起来使用。  例如： `v-on:click.prevent.self`
+
+
+### 6. Key Modifiers  按键修饰语
+
+Vuejs 也很贴心的提供了 Key Modifiers, 也就是一种支持键盘事件的快捷方法。 我们看下面的例子：
+
+```
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		输入完毕后，按下回车键，就会<br/>
+		触发 "show_message" 事件~  <br/><br/>
+
+		<input v-on:keyup.enter="show_message" v-model="message" />
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app', 
+			data: {
+				message: ''
+			}, 
+			methods: {
+				show_message: function(){
+					alert("您输入了：" + this.message)
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+```
+
+可以看到，在上面的代码中， `v-on:keyup.enter="show_message"`  为 `<a/>`  元素定义了事件，该事件对应了 "回车键"。 
+（严格的说，是回车键被按下后，松开弹起来的那一刻）
+
+我们用浏览器打开上面的代码对应的文件，输入一段文字，按回车，就可以看到事件已经被触发了。 如下图所示：
+
+![event key modifier被触发](./images/event_key_modifiers.png)
+
+Vuejs 总共支持下面这些 Key modifiers: 
+
+- enter    回车键
+- tab      tab 键
+- delete   同时对应了 backspace 和 del 键
+- esc      ESC 键
+- space    空格
+- up       向上键
+- down     向下键
+- left     向左键
+- right    向右键
+
+随着 Vuejs 版本的不断迭代和更新，越来越多的 Key modifiers 被添加了进来， 例如 `page down`, `ctrl` 。对于这些键的用法，
+大家可以查阅官方文档。
+
+
