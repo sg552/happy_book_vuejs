@@ -1,20 +1,30 @@
 # Vuex
 
-Vuex 是 状态管理工具.
+Vuex 是 状态管理工具. 跟React中的Redux相似，但是更加简洁直观。 
 
 简单的说, Vuex 帮我们管理 "全局变量", 供任何页面在任何时刻使用.
 
+跟其他语言中的“全局变量”相比， 使用Vuex 的优点是：
+
+1. Vuex中的变量的状态是响应式的。 当某个组件读取这个变量时，只要Vuex中的变量发生变化，那么对应的组件就会发生变化（类似于双向绑定）
+2. 用户或者程序无法直接改变Vuex中的变量。必须通过Vuex提供的接口来操作. 这个接口就是通过 "commit mutation"来实现的。
+
 Vuex 非常重要. 不管是大项目还是小项目,都有用到它的时候.  我们必须会用.
 
-完整官方文档:  https://vuex.vuejs.org/zh-cn/getting-started.html   必看.
+完整官方文档:  https://vuex.vuejs.org/zh-cn/getting-started.html   
 
+Vuex 的内容很庞大，用到了比较烧脑的设计模式（这是由于javascript语言本身不够严谨和成熟决定的），所以我不打算带同学们把源代码和实现机理
+详细的学一遍。 大家只要可以娴熟的使用就行了。
+
+下面，我们以一个例子来说明如何使用。
 
 ## 正常使用的顺序
 
-假设,我们有两个页面:  "页面1" 和"页面2" , 共同使用一个变量: counter.  页面1对 "counter" + 1 后,
-页面2的值也会发生变化.
+假设,我们有两个页面:  "页面1" 和"页面2" , 共同使用一个变量: counter.  页面1对 "counter" + 1 后, 页面2的值也会发生变化.
 
-### 1.修改`package.json`:
+### 1.修改`package.json`
+
+增加 `vuex` 的依赖声明，如下：
 
 ```
   "dependencies": {
@@ -30,9 +40,13 @@ $ npm install vuex --verbose
 
 然后看安装过来的版本号就可以了.
 
-### 2.新建文件:  `src/vuex/store.js`
+### 2.新建store文件
 
-这个文件的作用,是在整个Vuejs项目中, 声明: 我们要使用Vuex进行状态管理了.
+文件名： `src/vuex/store.js`
+
+这个文件的作用,是在整个Vuejs项目中声明: 我们要使用Vuex进行状态管理了.
+
+它的内容如下： 
 
 ```
 import Vue from 'vue'
@@ -65,7 +79,11 @@ import counter from '@/vuex/modules/counter'
 ```
 这里定义了所有的 vuex module.
 
-3.新建文件: `src/vuex/modules/counter.js`
+### 3.新建vuex/module文件
+
+文件名： `src/vuex/modules/counter.js`
+
+内容如下：
 
 ```
 import { INCREASE } from '@/vuex/mutation_types'
@@ -104,14 +122,17 @@ export default {
 我们如果希望"更改"某个数据，就需要调用 vuex module的`mutation` 方法。
 
 
-4.新增文件: `src/vuex/mutation_types.js`
+### 4.新增文件: `src/vuex/mutation_types.js`
 
 ```
 export const INCREASE = 'INCREASE'
 ```
-大家做项目的时候, 要统一把 mutation type定义在这里. 它类似于 方法列表.
 
-5.新增路由: `src/routers/index.js`
+大家做项目的时候, 要统一把 mutation type定义在这里. 它类似于方法列表.
+
+这个步骤不能省略。 Vuejs官方也建议这样写。 好处是维护的同学可以看到 某个mutation有多少种状态。
+
+### 5.新增路由: `src/routers/index.js`
 
 ```
 import ShowCounter1 from '@/components/ShowCounter1'
@@ -214,3 +235,19 @@ export default {
 重启服务器( `$ npm run dev` ) , 之后运行, 可以看到如下图所示:
 
 ![vuex演示 计数器](./images/vuejs_vuex演示.gif)
+
+## Vuex 原理图
+
+为了学会本章内容，大家务必亲手敲一敲代码。
+
+下面是Vuex的原理图. 
+
+![Vuex](./images/vuex.png)
+
+可以看到： 
+
+1.总体分成 ： Action, Mutation, State 三个概念. State由Mutation来变化
+2.Vuex 通过 Action 与后端API进行交互
+3.Vuex 通过 State 来渲染前端页面。 
+4.前端页面通过触发 Vuex的Action，来提交mutation, 达到改变 "state"的目的。
+
