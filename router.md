@@ -64,7 +64,9 @@ routes: [
 <router-link :to="{name: 'Blog', query:{id: 3} }">User</router-link>
 ```
 
-在script中,也可以这样做:
+当用户点击这个代码生成的 html 页面时，就会触发跳转。
+
+在`<script/>`中,也可以这样做:
 
 ```
 this.$router.push({name: 'Blog', query: {id: 3}})

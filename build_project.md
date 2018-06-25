@@ -1,5 +1,11 @@
 # 打包和部署
 
+平时我们开发时，是在本地做开发，每次打开的都是 http://localhost:8080/#/ 。 而真实的项目中，我们肯定要把项目部署到某个地方。
+
+所以我们需要对项目进行打包和编译。 
+
+另外，在正式上线之前，也要在测试服务器上进行发布， 这样才能看到一些平时在 localhost上看不到的问题。
+
 ## 打包
 
 直接使用下面命令,就可以把vue项目打包:
@@ -8,7 +14,7 @@
 $ npm run build
 ```
 
-如下:
+这个命令运行过程如下:
 
 ```
 siwei@siwei-linux:/workspace/test_vue_0613$ npm run build
@@ -41,8 +47,12 @@ static/css/app.32ddfe6eea5926f8e3c760d764fef3fa.css.map  623 bytes       0  [emi
 
 ```
 
+可以看到： 
 
-可以看到, 所有的 .vue 文件,都被打包编译成了下面的文件:
+1. 整个过程耗时 18.658s
+2. 使用的 webpack 版本是 2.6.1
+3. 对CSS文件进行了优化.  (优化的比率是 52.11%)
+4. 所有的 .vue 文件,都被打包编译成了下面的文件:
 
 ```
 $ find ./dist
@@ -73,7 +83,7 @@ $ find ./dist
 
 - 路径是 :  /opt/app/test_vue
 - 服务器ip:  123.255.255.33
-- 服务器ssh端口: 6666
+- 服务器ssh端口: 6666  
 - 服务器用户名: root
 
 
@@ -90,7 +100,7 @@ app.d8b9f437c302a7070fe7.js                     100% 9323     9.1KB/s   00:00
 vendor.33c767135f1684f458a7.js                  100%  119KB 118.7KB/s   00:00
 ```
 
-这样,就把本地的 <vue_project>/dist 目录,上传到了远程的 /opt/app目录上.
+这样,就把本地的 `dist` 目录,上传到了远程的 /opt/app目录上.
 
 ### 2. 配置远程服务器
 
@@ -98,10 +108,9 @@ vendor.33c767135f1684f458a7.js                  100%  119KB 118.7KB/s   00:00
 
 ```
 $ ssh root@123.255.255.23 -p 6666
-(输入密码)
+(输入密码， 回车)
 
 Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.13.0-86-generic x86_64)
-....
 
 root@my_server:~#
 
@@ -170,8 +179,8 @@ PING vue_demo.siwei.me (123.57.235.33) 56(84) bytes of data.
 
 说明 我的二级域名 `vue_demo.siwei.me` 已经可以正常指向到 我的服务器ip了.
 
-### 部署完成!
+### 4. 部署完成!
 
-打开浏览器, 访问 http://vue_demo.siwei.me 即可看到:
+打开浏览器, 访问 http://vue_demo.siwei.me 就可以看到效果了，如下图所示:
 
 ![vuejs_vue_demo](./images/vuejs_vue_demo.siwei.me.png)

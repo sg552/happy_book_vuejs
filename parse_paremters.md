@@ -185,8 +185,6 @@ export default {
 
 ## 修改博客列表页--跳转方式2: 使用v-link
 
-参考: https://router.vuejs.org/zh-cn/api/router-link.html
-
 `<router-link>` 比起 `<a href="...">` 会好一些，理由如下：
 
 无论是 HTML5 history 模式还是 hash 模式，它的表现行为一致，所以，当你要切换路由模式，或者在 IE9 降级使用 hash 模式，无须作任何变动。
@@ -212,3 +210,5 @@ export default {
 ```
 
 点击之后,有同样的跳转功能.
+
+感兴趣的同学，可以查看:  https://router.vuejs.org/zh-cn/api/router-link.html
