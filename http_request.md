@@ -340,4 +340,4 @@ this.$http.post('api/interface/blogs/all', {title: '', blog_body: ''})
 	});
 ```
 
-官方文档：https://github.com/pagekit/vue-resource
+关于发送http请求的更多内容，请看： 官方文档：https://github.com/pagekit/vue-resource

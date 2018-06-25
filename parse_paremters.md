@@ -1,23 +1,32 @@
 # 不同页面间的参数的传递
 
-在普通的web开发中，参数传递有这么几种形式：
+在普通的web开发中，参数传递有以下几种形式：
 
 1. url:   `/another_page?id=3`
 2. 表单: `<form>...</form>`
 
-在vuejs中，不会产生表单的提交（这会引起页面的整体刷新）.　所以有两种：
+而在Vuejs中，不会产生表单的提交（这会引起页面的整体刷新）.　所以有两种：
 
-1. url ．　同传统语言．
+1. url ．　同传统语言． 参数体现在url中。
 2. vuejs 内部的机制．（无法在url 中体现，可以认为是由js代码隐式实现的）
 
 我们用一个实际的例子说明．
 
-
 我们之前实现了　＂博客列表页＂，接下来我们要实现：点击博客列表页中的某一行，就显示博客详情页．
 
-## 现有的接口
+## 1. 回顾：现有的接口
+
+我已经做好了一个接口： 文章详情页。 地址为：  
+
+`/interface/blogs/show`
+
+该接口接收一个参数： id.   使用 http GET请求来访问。
+
+下面是该接口的一个完整形式：
 
 http://siwei.me/interface/blogs/show?id=1244
+
+下面是返回结果: 
 
 ```
 {
@@ -29,9 +38,13 @@ http://siwei.me/interface/blogs/show?id=1244
 }
 ```
 
-## 新增Vue 页面：博客详情页．
+在浏览器中看起来如下图所示： 
 
-我们新增Vue页面：  `src/components/Blog.vue`, 用于显示博客详情．
+![blog show interface](./images/siwei_blog_inteface_show.png)
+
+## 2. 显示博客详情页
+
+我们需要新增Vue页面：  `src/components/Blog.vue`, 用于显示博客详情．
 
 ```
 <template>
@@ -70,15 +83,20 @@ export default {
 上面代码中:
 
 - `data(){ blog: {}}` 用来初始化 blog这个页面用到的变量.
-- \{\{blog.body}}, \{\{blog.title}} 等, 用来显示blog相关的信息.
+
+- `{{blog.body}}`, `{{blog.title}}` 等, 用来显示blog相关的信息.
+
 - `mounted...` 中,定义了发起http的请求.
-- `this.$route.query.id` 获取url 中的id参数. 例如:   `/my_url?id=333` , 那么 '333' 就是取到的结果.
 
-## 新增路由
+- `this.$route.query.id` 获取url 中的id参数. 例如:   `/my_url?id=333` , 那么 '333' 就是取到的结果. 具体的定义看下面的路由。
 
-修改 ： `src/router/index.js`
+## 3. 新增路由
+
+修改 ： `src/router/index.js`文件. 添加如下代码： 
 
 ```
+import Blog from '@/components/Blog'
+
 export default new Router({
   routes: [
 		// ...
@@ -91,10 +109,13 @@ export default new Router({
 } )
 ```
 
-## 修改博客列表页--跳转方式1: 使用事件
+上面的代码，就是让Vuejs 可以对形如  `http://localhost:8080/#/blog` 的url进行处理。 对应的vue文件是 `@/components/Blog.vue`.
+
+## 4. 修改博客列表页--跳转方式1: 使用事件
 
 我们需要修改博客列表页, 增加跳转事件:
 
+修改：`src/components/BlogList.vue`, 如下代码所示：
 
 ```
 <template>
@@ -117,18 +138,25 @@ export default {
 
 在上面代码中,
 
-- `<td @click='show_blog(blog.id)'...` 表示, 该`<td>`标签在被点击的时候,会触发一个事件: `show_blog`
+- `<td @click='show_blog(blog.id)'...</td>`  表示:  该`<td>`标签在被点击的时候,会触发一个事件: `show_blog`, 
 并且以当前正在遍历的 blog对象的id 作为参数.
+
 - `methods: {}` 是比较核心的方法,  vue页面中用到的事件,都要写在这里.
+
 - `show_blog: function...` 就是我们定义的方法.该方法可以通过`@click="show_blog" `来调用.
+
 - `this.$router.push({name: 'Blog', params: {id: blog_id}})`中:
+
   - `this.$router` 是vue的内置对象. 表示路由.
   - `this.$router.push` 表示让vue跳转. 跳转到 name: Blog 对应的vue页面. 参数是 id: blog_id .
 
 
 ## 演示
 
-下图是在博客列表页，点击之后，跳转到　博客详情页的ＧＩＦ动画.
+(TODO 这里的GIF要换成静态图片)
+打开“博客列表页” ，就可以看到对应的所有文章。然后点击其中一个的标题，就可以打开对应的文章详情页了。 
+
+如下图GIF动画所示： 
 
 ![点击之后的跳转动画](./images/点击后的跳转.gif)
 
@@ -159,7 +187,7 @@ export default {
 
 参考: https://router.vuejs.org/zh-cn/api/router-link.html
 
-`<router-link>` 比起写死的 `<a href="...">` 会好一些，理由如下：
+`<router-link>` 比起 `<a href="...">` 会好一些，理由如下：
 
 无论是 HTML5 history 模式还是 hash 模式，它的表现行为一致，所以，当你要切换路由模式，或者在 IE9 降级使用 hash 模式，无须作任何变动。
 
