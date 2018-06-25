@@ -340,4 +340,6 @@ this.$http.post('api/interface/blogs/all', {title: '', blog_body: ''})
 	});
 ```
 
+在本书的 《表单的提交》 章节中，会对 http POST 的发送有个实际的例子，看起来会更加明白。
+
 关于发送http请求的更多内容，请看： 官方文档：https://github.com/pagekit/vue-resource
