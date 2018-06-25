@@ -1,5 +1,8 @@
 # 视图中的渲染
 
+前面我们介绍了项目的运行（hello world), 文件夹的结构，以及index.html中的内容是如何一点点的渲染出来的。下面，我们来
+学习下Vuejs中对于视图的操作。
+
 ## 渲染某个变量
 
 假定我们定义了一个变量：　
@@ -23,8 +26,36 @@ export default {
 <div>{{my_value}}</div>
 ```
 
-## 方法的声明和调用
+完整代码如下： （ `src/components/Hello.vue`) 
 
+```
+<template>
+  <div>
+    {{message}}
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      message: '你好Vue! 本消息来自于变量'
+    }
+  }
+}
+</script>
+
+<style>
+</style>
+```
+
+可以看到，上面的代码显示定义了 `message` 这个变量， 然后把它在 `<h1> {{ message }} </h1>` 中显示出来。 
+
+打开浏览器  http://localhost:8080/#/say_hi_from_variable , 就可以看到下图所示： 
+
+![say_hi_from_variable](./images/vue_render_page_variable.png)
+
+## 方法的声明和调用
 
 声明一个方法：　show_my_value
 ```
@@ -85,7 +116,7 @@ export default {
 <input type='button' @click="say_hi('Jim')" value='...'/>
 ```
 
-就会调用 say_hi , 传入参数　'Jim'
+就会调用 `say_hi` 这个方法 , 传入参数　'Jim'。
 
 ## 事件处理：　v-on
 
@@ -95,6 +126,3 @@ export default {
 <input type='button' @click="say_hi('Jim')" value='...'/>
 <input type='button' v-on:click="say_hi('Jim')" value='...'/>
 ```
-
-以上就是我们实际当中最常见的用法.　
-

@@ -43,3 +43,19 @@
 ```
 
 中的 "Vuejs", 指的就是在 "Webpack + Vuejs"的项目中。 而不是 "原始Vuejs".
+
+## 例子
+
+本章节中的所有例子，由于都需要跟webpack相结合，所以我把它单独拉出来成为一个项目：  https://github.com/sg552/vue_js_lesson_demo  
+
+大家可以下载后直接运行。 
+
+```
+$ git clone https://github.com/sg552/vue_js_lesson_demo.git
+$ npm install -v
+$ npm run dev
+``` 
+
+然后就可以在  http://localhost:8080/#/ 中看到效果，如下图所示：
+
+![lesson demo](./images/vue_lesson_demo.png)
