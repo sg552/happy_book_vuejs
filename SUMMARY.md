@@ -44,11 +44,9 @@
   * [事件Event](event.md)
   * [与CSS预处理器结合使用](scss_less.md)
   * [自定义Directive](custom_directive.md)
-
-* [实战周边]
-  * [微信支付]
-  * [与App的结合使用]
-  * [部署后的优化建议]
+* [实战周边](real_world.md)
+  * [微信支付](weixin_pay.md)
+  * [与App的结合使用](mixed_app.md)
 
 * [相关工具](tools.md)
   * [vue-devtools](setup_vuejs_devtools.md)
