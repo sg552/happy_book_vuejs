@@ -9,10 +9,9 @@
 1. 新建路由
 2. 新建vue页面
 
+## 新建路由
 
-## 新建一个路由
-
-路由文件是 `src/router/index.js`, 打开之后, 我们增加两行:
+默认的路由文件是 `src/router/index.js`, 打开之后, 我们增加两行:
 
 ```
 import Vue from 'vue'
@@ -35,11 +34,37 @@ export default new Router({
 })
 ```
 
-## 创建一个新的component
+上面的代码中， 
 
-我们要创建 `src/components/SayHi.vue`, 这个文件.
+```
+import SayHi from '@/components/SayHi'
+```
 
-如下:
+表示从 当前目录下的 `components` ，引入 `SayHi` 文件。  `@` 表示当前目录。
+
+然后，用下面的代码来定义一个路由：
+
+```
+routes: [
+    {
+      path: '/say_hi',   // 对应 一个url 
+      name: 'SayHi',     // Vuejs 内部使用的名称
+      component: SayHi   // 对应的 .vue 页面的名字
+    },
+]
+```
+
+也就说，每当用户的浏览器访问  `http://localhost:8080/#/say_hi` 时， 就会渲染 `./components/SayHi.vue` 文件。
+
+`name: 'SayHi' ` 定义了该路由在Vuejs内部的名称。 后面会对此有所解释。
+
+
+
+## 创建一个新的Component
+
+由于上面我们在路由中引用了component： `src/components/SayHi.vue`, 接下来，我们要创建这个文件.
+
+代码如下:
 
 ```
 <template>
@@ -61,21 +86,23 @@ export default {
 
 ```
 
-现在,我们可以直接访问  http://localhost:8080/#/say_hi 这个链接了. 效果如下图.
+在上面的代码中： 
+
+- `<template></template>` 代码块中,表示的是 HTML模板.  里面写的就是最普通的HTML 。 
+
+- `<script/>`表示的是 js 代码. 所有的js代码都写在这里.  这里使用的是 EM Script.
+
+- `<style>`表示所有的 CSS/SCSS/SASS 文件都可以写在这里.
+
+现在,我们可以直接访问  http://localhost:8080/#/say_hi 这个链接了. 打开后，页面如下图所示：
 
 ![say_hi图片](./images/vue_doc_say_hi_page.png)
 
-
-- `<template></template>` 代码块中,表示的是 HTML模板.
-- `<script>`表示的是 js 代码. 所有的js代码都写在这里.
-- `<style>`表示所有的 CSS/SCSS/SASS 文件都可以写在这里.
-
 ## 为页面增加一些样式
 
-例如,我们可以把页面加一些样式:
+接下来，我们可以为页面加一些样式， 让它变得好看一些:
 
 ```
-
 <template>
   <div class='hi'>
     Hi Vue!
@@ -98,16 +125,49 @@ export default {
 </style>
 ```
 
-注意上面代码中的　`<style>`标签，里面跟普通的CSS一样定义了样式。
+注意上面代码中的　`<style>`标签，里面跟普通的CSS一样, 定义了样式。
 
-可以看到, 文字加了颜色, 如下图:
+```
+.hi {
+  color: red;
+  font-size: 20px;
+}
+```
+
+刷新浏览器，可以看到, 文字加了颜色, 如下图所示:
 
 ![加了颜色的文字](./images/say_hi_with_style.png)
 
-## 在页面中定义并显示变量
+## 定义并显示变量
 
 如果要在vue页面中定义一个变量,并把它显示出来,就需要事先在 `data` 中定义:
-(具体步骤见注释)
+
+```
+export default {
+  data () {
+    return {
+      message: '你好Vue! 本消息来自于变量'
+    }
+  }
+}
+```
+
+可以看到，上面的代码是通过 Webpack的项目来写的。 回忆一下， 原始的Vuejs中是如何定义一个变量(property) 的？
+
+答案是：
+```
+var app = new Vue({
+  data () {
+    return {
+      message: '你好Vue! 本消息来自于变量'
+    }
+  }
+})
+```
+
+所以，我们可以认为， 之前用“原始的Vuejs”的代码中，写的 `new Vue({...})`中的代码，在webpack的框架下，都要写到 `export default { .. }` 中来。
+
+完整的代码（`src/components/SayHi.vue`）如下所示： 
 
 ```
 <template>
