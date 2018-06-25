@@ -177,3 +177,55 @@ export default {
 如下图:
 
 ![传递变量给组件](./images/vuejs_传递参数给组件.gif)
+
+## 脱离Webpack , 在原生Vuejs中创建 Component
+
+非常简单。 如下面代码所示：
+
+```
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+  <div id='app'>
+    <study-process></study-process>
+  </div>
+  <script>
+    Vue.component('study-process', {
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      template: '<button v-on:click="count++">我学习到了第 {{ count }} 章.</button>'
+    })
+    var app = new Vue({
+      el: '#app', 
+      data: {
+      }
+    })
+  </script>
+</body>
+</html>
+```
+
+该代码首先声明了一个component: 
+
+```
+    Vue.component('study-process', {
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      template: '<button v-on:click="count++">我学习到了第 {{ count }} 章.</button>'
+    })
+```
+
+可以看出，该component 中定义了一个 `data` 代码段， 里面有个变量 `count`.  
+
+然后定义一个 `template`段落即可。
+
+
+
