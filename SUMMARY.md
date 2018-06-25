@@ -46,14 +46,10 @@
   * [自定义Directive](custom_directive.md)
 * [实战周边](real_world.md)
   * [微信支付](weixin_pay.md)
-  * [与App的结合使用](mixed_app.md)
-
+  * [与App的结合使用](hybrid_app.md)
 * [相关工具](tools.md)
   * [vue-devtools](setup_vuejs_devtools.md)
-  * [webpack]
-  * [em2015]
   * [查看Vuejs API](how_to_check_api.md)
-
 * [学习资源]
   * [官方网站]
   * [github/论坛？]
