@@ -4,14 +4,15 @@
   * [与React, Angular的对比](vue_react_angular.md)
   * [被微信和淘宝所看重](wechat_and_weex.md)
   * [使用Vuejs的知名项目和公司](vuejs_projects.md)
-* [Vuejs项目](origin_vuejs.md)
+* [原生的Vuejs](origin_vuejs.md)
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
-  * [安装前准备: NVM, NPM 与Node](nvm.md)
-  * [安装前准备: Git Bash](git.md)
-  * [搭建环境与hello world](preparation.md)
+* [准备开始]
   * [如何学习文档](how_to_read_vuejs_document.md)  
 * [真实项目中的 Vuejs + Webpack](vuejs_basic.md)
-  * [Webpack介绍]
+  * [安装前准备: NVM, NPM 与Node](nvm.md)
+  * [安装前准备: Git Bash](git.md)
+  * [Webpack介绍](webpack.md)
+  * [安装webpack与vuejs](preparation.md)
   * [项目文件夹基本结构](file_structure.md)
   * [定义一个页面](define_a_page.md)
   * [语法简写说明](es_script.md)
@@ -41,7 +42,7 @@
   * [最佳实践](best_practices.md)
   * [TODO emit](emit.md)
   * [事件Event](event.md)
-  * [与CSS预处理器结合](scss_less.md)
+  * [与CSS预处理器结合使用](scss_less.md)
   * [自定义Directive](custom_directive.md)
 
 * [实战周边]
