@@ -8,7 +8,7 @@
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
 * [准备开始]
   * [如何学习文档](how_to_read_vuejs_document.md)  
-* [真实项目中的 Vuejs + Webpack](vuejs_basic.md)
+* [Webpack + Vuejs实战](vuejs_basic.md)
   * [安装前准备: NVM, NPM 与Node](nvm.md)
   * [安装前准备: Git Bash](git.md)
   * [Webpack介绍](webpack.md)
