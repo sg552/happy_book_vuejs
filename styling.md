@@ -1,8 +1,35 @@
 # 使用样式
 
-样式用起来特别简单.  直接写到 `<style>` 段落里面即可.
+样式用起来特别简单.  直接写到 `<style>` 段落里面即可. 如下代码所示：
 
-## 使用普通的css
+```
+<template>
+  <div class='hi'>
+    Hi Vue!
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return { }
+  }
+}
+</script>
+
+<style>
+.hi {
+  color: red;
+  font-size: 20px;
+}
+</style>
+```	
+
+用浏览器打开上述代码，就可以看到 一个红色的，字体大小为20px 的 "Hi Vue!". 如下图所示：
+
+![带有style的demo](./images/vue_style.png)
+
+## 使用全局
 
 ```
 <style >

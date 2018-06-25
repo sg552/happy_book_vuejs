@@ -1,9 +1,10 @@
 # 双向绑定
 
-双向绑定这个概念在angular出现的时候,就作为王牌概念. 现在几乎是个js前端框架,就有这个功能.
-它的概念是:
+双向绑定这个概念现在越来越普及。 
 
-某个变量, 如果展现在页面上的话:
+在Angular出现的时候,就作为宣传的王牌概念. 现在几乎是个js前端框架,就有这个功能. 它的概念是:
+
+某个变量，定义于 `<script/>`, 需要展现在 `<template/>`中的话:
 
 1. 如果在代码层面进行修改, 那么页面的值就会发生变化
 2. 如果在页面进行修改(例如在input标签中), 那么代码的值就会发生变化.
@@ -47,13 +48,19 @@ export default {
 </script>
 
 ```
-上面代码中，　
 
+上面的代码中， 显示定义了一个 变量 "my_value"， 这个变量可以在 `<script/>`中访问和修改，也可以在 `<template/>`中访问和修改。 
 
+- 在代码(`<script/>`) 中访问的话，就是 `this.my_value`
+- 在视图(`<template/>`)中访问的话，就是 `<input v-model=my_value />`
 
-然后,修改路由文件:  `src/router/index.js`:
+所以，这个就是双向绑定的方法。
+
+接下来,修改路由文件:  `src/router/index.js`:
 
 ```
+import TwoWayBinding from '@/components/TwoWayBinding'
+
 export default new Router({
   routes: [
     {
@@ -65,13 +72,18 @@ export default new Router({
 })
 ```
 
+然后, 就可以用浏览器访问路径:　`http://localhost:8080/#/two_way_binding`
 
-然后, 就可以访问路径:　`http://localhost:8080/#/two_way_binding`
+效果１：通过页面，修改js代码的值，可以看到，代码中的`my_value`一边， 视图中的`my_value` 就发生变化。 
 
-效果１：通过页面，修改js代码的值：
+如下图所示： 
+
 ![双向绑定的效果: 页面修改代码](./images/vuejs_双向绑定_页面的修改影响代码中的变量.gif )
 
-效果２：通过代码层面的改动，影响页面的值：
+效果２：通过代码层面的改动，影响页面的值. 
+
+如下图所示：
+
 ![通过代码层面的改动，影响页面的值](./images/vuejs_双向绑定_代码层面的修改，影响页面的值.gif)
 
 所以，这个特性是Vuejs自带的。我们不需要刻意学它，只需要知道它可以达到这个目的，具备这个特性，就可以了。
