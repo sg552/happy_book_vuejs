@@ -21,32 +21,19 @@ td {
 }
 </style>
 ```
-这段CSS只对当前的 component 适用.
+这段CSS只对当前的 component 适用. 
 
-## 使用 sass等.
+也就是说，当我们有两个不同的页面： page1, page2, 如果两个页面中都定义了某个样式（例如上面的 `td`）的话，是不会互相冲突的。 
 
-安装sass依赖sass-loader和node-sass：
-```
-$ npm i sass-loader node-sass -D
-```
-
-
-
-
-然后在webpack.base.conf.js中添加相关配置：
+因为Vuejs 会这样解析： 
 
 ```
-{
-    test: /\.s[a|c]ss$/,
-    loader: 'style!css!sass'
-}
+page1 的DOM： 
+<div data-v-7cfd41e ... ></div>
+
+page2 的DOM: 
+<div data-v-3389dfw ... ></div>
 ```
 
-然后我们就可以在style标签中写 sass 了.
-```
-<style lang='sass'>
-td {
-  border-bottom: 1px solid grey;
-}
-</style>
-```
+而我们使用的 "scoped style" ，就可以存在于不同的页面（component)上了！
+

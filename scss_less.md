@@ -1,4 +1,4 @@
-# 与 scss, less 的结合
+# 与CSS预处理器结合使用
 
 20年前的《程序员修炼之道》这本书，就提到了程序员的一个职业习惯： DIY。 (Don't Repeat Yourself), 不要做重复的事儿。
 
@@ -131,4 +131,38 @@ body {
 所以这个技术比较落没。 慢慢的被SCSS (SASS 3.0) 所取代。
 
 所以，同学在这个技术的故事上要学习到一个道理： 程序员认为好的技术，在团队配合的过程和实践中是不一定适用的。 SASS 团队也做的非常不做，立刻就在SASS 3.0的时候推出了SCSS。
+
+
+## 在 Vuejs 中使用CSS预编译器
+
+使用的前提，是我们以 Webpack的形式使用Vuejs. 
+
+使用方法非常简单。 我们以SASS为例： 
+
+1.安装依赖: "sass-loader" 和 "node-sass", 运行下面命令：
+
+```
+$ npm i sass-loader node-sass -D
+```
+
+2.在"webpack.base.conf.js"中添加相关配置：
+
+```
+{
+    test: /\.s[a|c]ss$/,
+    loader: 'style!css!sass'
+}
+```
+
+3.在对应的 ".vue" 文件中，我们就可以这样的定义某个样式： 
+
+```
+<style lang='sass'>
+td {
+  border-bottom: 1px solid grey;
+}
+</style>
+```
+
+上面的代码，会在运行的时候，被webpack编译成对应的CSS文件。 
 

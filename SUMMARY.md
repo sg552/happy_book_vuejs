@@ -41,7 +41,7 @@
   * [最佳实践](best_practices.md)
   * [TODO emit](emit.md)
   * [事件Event](event.md)
-  * [与scss, less的结合](scss_less.md)
+  * [与CSS预处理器结合](scss_less.md)
   * [自定义Directive](custom_directive.md)
 
 * [实战周边]
