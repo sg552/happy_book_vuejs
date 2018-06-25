@@ -1,17 +1,19 @@
-# 发送 http请求
+# 发送http请求
 
 TODO:  需要加上 http resource, 在 main.js。
 
-很多时候我们需要在页面打开的时候,读取远程的内容,然后在当前页面显示.
+只要有js的地方，就要有接口。 特别是我们这样前后端分离的SPA， 几乎每个页面都要发起http请求。从后台接口读取数据，并且显示在前台页面。
 
-这就需要用到 http请求了.
+这就需要用到http请求了. 
 
-## vue页面调用http请求
+## 1. 调用http请求
 
 vuejs 内置了对发送http请求的支持. 只需要在对应页面的script 标签内加上对应的代码就好.
 例如:
 
-我们新增一个页面,叫 "博客列表页" :  `src/components/BlogList.vue`, 内容如下:
+我们新增一个页面,叫 "博客列表页" :  `src/components/BlogList.vue`, 它的作用是从我的个人网站(http://siwei.me) 上，读取文章的标题，并且显示出来。
+
+代码如下:
 
 ```
 <template>
@@ -41,7 +43,6 @@ export default {
        console.error(response)
     });
   }
-
 }
 </script>
 
@@ -53,9 +54,60 @@ td {
 </style>
 ```
 
-## 远程接口的格式
+上面的代码中， 我们先看 `<script/>`代码段，
 
-假设远程的接口,是:
+```
+export default {
+  data () {
+    return {
+      title: '博客列表页',
+      blogs: [
+      ]
+    }
+  },
+  mounted() {
+    this.$http.get('api/interface/blogs/all').then((response) => {
+       console.info(response.body)
+       this.blogs = response.body.blogs
+    }, (response) => {
+       console.error(response)
+    });
+  }
+}
+```
+
+上面代码中，先是定义了两个变量：  `title`,  `blogs`, 然后定义了一个 `mounted` 方法。该方法表示当页面加载完毕后应该做哪些事情。
+是一个钩子方法。 
+
+```
+this.$http.get('api/interface/blogs/all').then((response) => {
+   console.info(response.body)
+   this.blogs = response.body.blogs
+}, (response) => {
+   console.error(response)
+});
+```    
+
+上面代码，是发起http请求的核心代码。 访问的接口地址是 `api/interface/blogs/all` ， 然后使用 `then`方法做下一步的事情， 
+`then`方法接受两个函数作为参数，第一个是成功后干嘛，第二个是失败后干嘛。 
+
+成功后的代码如下：  
+
+```
+this.blogs = response.body.blogs
+```
+
+然后，在对应的视图部分显示： 
+
+```
+<tr v-for="blog in blogs">
+  <td>{{blog.title }}</td>
+</tr>
+```
+
+## 2. 远程接口的格式
+
+在我的服务器上，读取个人博客标题的接口我已经提前做好了，是 ：
 
 http://siwei.me/interface/blogs/all
 
@@ -65,23 +117,42 @@ http://siwei.me/interface/blogs/all
 {
   blogs: [
     {
-      id: 1245,
-      title: "vuejs - mixin的基本用法",
-      created_at: "2017-07-19T08:30:02+08:00"
+      id: 1516,
+      title: "网络安全资源",
+      created_at: "2018-06-24T09:36:20+08:00"
     },
     {
-      id: 1244,
-      title: "android - 在 view pager中的 webview, 切换时，会闪烁的问题。",
-      created_at: "2017-07-18T15:04:07+08:00"
+      id: 1515,
+      title: "github - 邀请伙伴后，需要修改权限",
+      created_at: "2018-06-20T15:03:33+08:00"
+    },
+    {
+      id: 1514,
+      title: "ruby/rails - 根据浏览器的语言，来自动识别",
+      created_at: "2018-06-19T08:28:44+08:00"
+    }, 
+    {
+      id: 1513,
+      title: "google cloud - 申请VM的经验",
+      created_at: "2018-06-09T16:42:08+08:00"
+    },
+    {
+      id: 1512,
+      title: "验证码 - 使用geetest 或者网易云盾提供的动态二维码",
+      created_at: "2018-06-07T09:28:14+08:00"
     }
+    // 更多内容。。。
   ]
 }
 ```
 
-## 设置 vue　开发服务器的代理
+在浏览器中打开后，如下图所示（使用了 jsonview 插件做了json 的代码格式化）: 
 
-正常来说， javascript在浏览器中是无法发送跨域请求的，所以我们需要在vuejs的＂开发服务器＂上做
-个转发配置．
+![siwei blog list api](./images/siwei_blog_interface_list.png)
+
+## 3. 设置 Vuejs 开发服务器的代理
+
+正常来说， javascript在浏览器中是无法发送跨域请求的，所以我们需要在vuejs的＂开发服务器＂上做个转发配置．
 
 修改：  `config/index.js`文件，增加下列内容：
 
@@ -110,8 +181,47 @@ module.exports = {
 - 原请求：　　http://localhost:8080/api/interface/blogs/all
 - 新请求：　　http://siwei.me/interface/blogs/all
 
-注意：　以上的代理服务器内容，只能在＂开发模式＂下才能使用．在生产模式下，只能靠服务器的nginx的
-特性来解决js跨域问题．
+注意：　以上的代理服务器内容，只能在＂开发模式＂下才能使用．在生产模式下，只能靠服务器的nginx的特性来解决js跨域问题．
+
+修改后的 `config/index.js`文件的完整内容如下：
+
+```
+var path = require('path')
+
+module.exports = {
+  build: {
+    env: require('./prod.env'),
+    index: path.resolve(__dirname, '../dist/index.html'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    productionSourceMap: true,
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css'],
+    bundleAnalyzerReport: process.env.npm_config_report
+  },
+  dev: {
+    env: require('./dev.env'),
+    port: 8080,
+    autoOpenBrowser: true,
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+
+    proxyTable: {
+      '/api': {
+        target: 'http://siwei.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+
+    cssSourceMap: false
+  }
+}
+
+```
 
 重启服务器，可以看到我们的转发设置已经生效：
 
@@ -125,7 +235,7 @@ $ npm run dev
 
 ```
 
-## 打开页面，查看http请求
+## 4. 打开页面，查看http请求
 
 我们接下来，访问  `http://localhost:8080/#/blogs/`
 
@@ -137,7 +247,7 @@ $ npm run dev
 
 ![浏览器直接打开链接](./images/直接用浏览器打开要被代理服务器发出的请求.png)
 
-## 把结果渲染到页面中．
+## 5. 把结果渲染到页面中．
 
 我们发现，在export代码段中，有两个部分：
 
@@ -182,7 +292,7 @@ mounted方法与created方法基本一样，一般我们在Vue 2.0中都使用mo
 - `this.blogs = response.body.blogs` 中，是把远程返回的结果（json ），赋予到本地．　由于javascript
 的语言特性，能直接支持json ，所以才可以这样写．
 
-然后，我们有：
+然后，我们通过这个代码进行渲染：
 
 ```
 <tr v-for="blog in blogs">
@@ -190,19 +300,21 @@ mounted方法与created方法基本一样，一般我们在Vue 2.0中都使用mo
 </tr>
 ```
 
-上面的代码中，　
-- `v-for`是一个循环语法，可以把<tr>这个元素进行循环． 注意：这个叫directive,　指令，
-需要跟标签一起使用．
-- `blog in blogs`: 前面的 `blog` 是一个临时变量，用于遍历使用．
+在上面的代码中：
+
+- `v-for`是一个循环语法，可以把<tr>这个元素进行循环． 注意：这个叫directive,　指令，需要跟标签一起使用．
+
+- `blog in blogs`: 前面的 `blog` 是一个临时变量，用于遍历使用． 
+
 后面的`blogs` 是http 请求成功后，　`this.blogs = ... ` 这个变量．
+
 同时，这个`this.blogs` 是声明于　`data`钩子方法中．
+
 - \{\{blog.title}} 用来显示每个blog.title的值
 
-## 发起post请求
-
+## 如何发起post请求？
 
 跟get特别类似，就是第二个参数是　请求的body.
-
 
 在　vue的配置文件中　（例如　webpack项目的　src/main.js 中）增加下面一句：
 
