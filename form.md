@@ -1,4 +1,6 @@
-# 对于表单的处理
+# 表单项目的绑定
+
+基本上，所有的表单项，无论是`<input/>`, 还是 `<textarea/>`，都需要使用 `v-model`来绑定。
 
 ## 表单项: input, textarea, select 等．
 
@@ -75,10 +77,7 @@ export default {
   }
 }
 </script>
-
 ```
-
-在代码层面可以看出，基本都使用v-model来进行输入值的绑定．
 
 对于select 的option, 使用　`v-bind:value`来绑定option的值.
 
@@ -92,6 +91,36 @@ export default {
 ![表单组件的效果](./images/vue_form.gif)
 
 
+## Modifiers （后缀词）
 
+### .lazy 
 
+可以让输入后不会立刻变化， 而是等焦点彻底离开后（触发 `blur()`事件后）才会触发视图层的值的变化。 
 
+使用方式： 
+
+```
+<input type='text' v-model.lazy="input_value"/>
+```
+
+这个可以用在某些需要等待用户输入完字符串才需要给出反应的情况，例如 “搜索” 。
+
+### .number
+
+强制要求输入数字
+
+使用方式： 
+
+```
+<input type='text' v-model.lazy="input_value" type="number"/>
+```
+
+### .trim 
+
+强制对输入的值进行去掉 前后的空格。
+
+使用方式： 
+
+```
+<input type='text' v-model.trim="input_value" />
+```
