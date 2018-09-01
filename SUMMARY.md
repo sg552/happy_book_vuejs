@@ -51,9 +51,7 @@
   * [准备1: 需求文档](real_project_chapter/requirement.md)
   * [准备2: 需求原型图](real_project_chapter/mock_diagram.md)
   * [准备3: 微信的各种账号](real_project_chapter/register_wechat.md)
-  * [准备3: 团队搭建](real_project_chapter/team.md)
-  * [准备4: 源代码仓库]
-  * [准备5: wiki与api]
+  * [准备3: 其他](real_project_chapter/team.md)
   * [用户的注册]
   * [用户的登陆]
 
