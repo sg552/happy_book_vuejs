@@ -17,7 +17,7 @@
 
 如下图所示：
 
-![参与角色图](./images/real_project/all_roles.png)
+![参与角色图](/images/real_project/all_roles.png)
 
 ### 消费者
 
@@ -30,7 +30,7 @@
 
 用户的用例图如下图所示：  
 
-![消费者的用例图](./images/real_project/user_use_case_diagram.png)
+![消费者的用例图](/images/real_project/user_use_case_diagram.png)
 
 ### 农民
 
@@ -38,7 +38,7 @@
 
 用例图如下图所示：
 
-![农民的用例图](./images/real_project/farmer_use_case_diagram.png)
+![农民的用例图](/images/real_project/farmer_use_case_diagram.png)
 
 ### 平台管理员
 
@@ -48,6 +48,6 @@
 可以处理订单
 订单的付款确认后, 发送快递.
 
-![平台管理员的用例图](./images/real_project/admin_use_case_diagram.png)
+![平台管理员的用例图](/images/real_project/admin_use_case_diagram.png)
 
 
