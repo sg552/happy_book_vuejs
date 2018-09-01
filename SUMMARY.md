@@ -6,6 +6,8 @@
   * [使用Vuejs的知名项目和公司](vuejs_projects.md)
 * [原生的Vuejs](origin_vuejs.md)
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
+* [准备开始]
+  * [如何学习文档](how_to_read_vuejs_document.md)
 * [Webpack + Vuejs实战](vuejs_basic.md)
   * [安装前准备: NVM, NPM 与Node](nvm.md)
   * [安装前准备: Git Bash](git.md)
@@ -45,6 +47,29 @@
 * [实战周边](real_world.md)
   * [微信支付](weixin_pay.md)
   * [与App的结合使用](hybrid_app.md)
+* [实战项目](real_project.md)
+  * [准备1: 需求文档](real_project_chapter/requirement.md)
+  * [准备2: 需求原型图](real_project_chapter/mock_diagram.md)
+  * [准备3: 团队搭建](real_project_chapter/team.md)
+  * [准备4: 源代码仓库]
+  * [准备5: wiki与api]
+  * [用户的注册]
+  * [用户的登陆]
+  * [微信公众平台, 支付平台的注册和配置]
+  * [微信的授权]
+  * [把微信账号与注册用户关联]
+  * [登陆状态的保持]
+  * [首页-轮播图]
+  * [商品列表页]
+  * [商品详情页]
+  * [修改微信中的标题](real_project_chapter/change_wechat_title.md)
+  * [购物车]
+  * [分享给微信好友]
+  * [微信支付]
+  * [部署到服务器]
+  * [域名的配置]
+  * [回顾]
+
 * [相关工具](tools.md)
   * [vue-devtools](setup_vuejs_devtools.md)
   * [如何学习文档](how_to_read_vuejs_document.md)  
