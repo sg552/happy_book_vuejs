@@ -6,8 +6,6 @@
   * [使用Vuejs的知名项目和公司](vuejs_projects.md)
 * [原生的Vuejs](origin_vuejs.md)
   * [Vuejs 初体验](hello_world_bare_vuejs.md)
-* [准备开始]
-  * [如何学习文档](how_to_read_vuejs_document.md)  
 * [Webpack + Vuejs实战](vuejs_basic.md)
   * [安装前准备: NVM, NPM 与Node](nvm.md)
   * [安装前准备: Git Bash](git.md)
@@ -41,7 +39,6 @@
   * [vuex状态管理器](vuex.md)
   * [生命周期](life_cycle.md)
   * [最佳实践](best_practices.md)
-  * [TODO emit](emit.md)
   * [事件Event](event.md)
   * [与CSS预处理器结合使用](scss_less.md)
   * [自定义Directive](custom_directive.md)
@@ -50,8 +47,5 @@
   * [与App的结合使用](hybrid_app.md)
 * [相关工具](tools.md)
   * [vue-devtools](setup_vuejs_devtools.md)
+  * [如何学习文档](how_to_read_vuejs_document.md)  
   * [查看Vuejs API](how_to_check_api.md)
-* [学习资源]
-  * [官方网站]
-  * [github/论坛？]
-  * [google搜索的方式]
