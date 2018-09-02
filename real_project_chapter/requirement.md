@@ -49,5 +49,3 @@
 订单的付款确认后, 发送快递.
 
 ![平台管理员的用例图](/images/real_project/admin_use_case_diagram.png)
-
-

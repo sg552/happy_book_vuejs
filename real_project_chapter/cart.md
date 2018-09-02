@@ -71,15 +71,13 @@ export default new Router({
 
 ```
 <template>
-		<div id="carttp">
-			<header class="top_bar">
-		    <a onclick="window.history.go(-1)" class="icon_back"></a>
-		    <h3 class="cartname">购物车</h3>
-		</header>
-		</div>
-
+	<div id="carttp">
+		<header class="top_bar">
+	    <a onclick="window.history.go(-1)" class="icon_back"></a>
+	    <h3 class="cartname">购物车</h3>
+	</header>
+	</div>
 </template>
-
 ```
 
 3.2 新增购物车的主体内容 src/components/CartMain.vue: 
@@ -217,8 +215,6 @@ export default new Router({
     },
     }
 </script>
-
-
 ```
 
 3.3 修改Vuex的函数
@@ -246,8 +242,6 @@ export const changeItemNumber = ({ commit }, {id, type}) => {
 
 - 对于商品数量的增减
 - 实现了当商品数量改变时，商品总价也跟着修改。 
-
-
 
 ## 看效果
 

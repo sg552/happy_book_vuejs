@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-
     // 这里就是底部Tab对应的vue文件
     import NavBottomView from '../../components/NavBottom.vue';
 </script>
@@ -80,46 +79,26 @@
   </div>
 </template>
 
- <script>
-    export default{
-      data () {
-        return {
-        }
-      },
-      props: {
-        is_shops_index: Boolean,
-        is_category: Boolean,
-        is_cart: Boolean,
-        is_mine: Boolean,
-      },
-      mounted () {
-      },
-      computed: {
-      },
-      methods: {
-      }
+<script>
+export default{
+  data () {
+    return {
     }
+  },
+  props: {
+    is_shops_index: Boolean,
+    is_category: Boolean,
+    is_cart: Boolean,
+    is_mine: Boolean,
+  },
+  mounted () {
+  },
+  computed: {
+  },
+  methods: {
+  }
+}
 </script>
-
-<style scoped>
-.tabbar-logo {
-  width: 25px;
-  height: 25px;
-  margin: 0 auto;
-  margin-top: 4px;
-}
-.tabbar-text {
-  margin-top: -4px;
-  font-weight: 500;
-}
-.tabItem .tab-item-link {
-  display: block;
-}
-.fixBottomBox .tabItem {
-  width: 70px;
-}
-</style>
-
 ```
 
 ## 效果图
