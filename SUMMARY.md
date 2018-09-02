@@ -55,7 +55,7 @@
   * [整体项目的搭建](real_project_chapter/scaffold.md)
   * [用户的注册和微信授权](real_project_chapter/user_register.md)
   * [登陆状态的保持](real_project_chapter/user_state.md)
-  * [首页-轮播图]
+  * [首页-轮播图](real_project_chapter/slider.md)
   * [商品列表页]
   * [商品详情页]
   * [修改微信中的标题](real_project_chapter/change_wechat_title.md)
