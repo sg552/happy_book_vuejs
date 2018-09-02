@@ -60,8 +60,7 @@
   * [商品列表页](real_project_chapter/list_page.md)
   * [商品详情页](real_project_chapter/show_page.md)
   * [修改微信中的标题](real_project_chapter/change_wechat_title.md)
-  * [购物车]
-  * [分享给微信好友]
+  * [购物车](real_project_chapter/chart.md)
   * [微信支付]
   * [部署到服务器]
   * [域名的配置]
