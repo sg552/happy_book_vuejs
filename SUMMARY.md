@@ -57,8 +57,8 @@
   * [登陆状态的保持](real_project_chapter/user_state.md)
   * [首页-轮播图](real_project_chapter/slider.md)
   * [底部Tab](real_project_chapter/bottom_tab.md)
-  * [商品列表页]
-  * [商品详情页]
+  * [商品列表页](real_project_chapter/list_page.md)
+  * [商品详情页](real_project_chapter/details_page.md)
   * [修改微信中的标题](real_project_chapter/change_wechat_title.md)
   * [购物车]
   * [分享给微信好友]
