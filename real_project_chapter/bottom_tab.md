@@ -54,7 +54,7 @@
                   <p class="tabbar-text">分类</p>
                 </a>
             </router-link>
-            <router-link tag="li" to="/cart2" class="tabItem">
+            <router-link tag="li" to="/cart" class="tabItem">
                 <a href="javascript:;" class="tab-item-link" v-if="is_cart">
                   <img src="../assets/footer03.png" alt="" class="tabbar-logo">
                   <p class="tabbar-text" style="color: rgba(234, 49, 6, 0.66);">购物车</p>

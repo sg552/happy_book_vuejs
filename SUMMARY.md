@@ -62,7 +62,6 @@
   * [购物车](real_project_chapter/cart.md)
   * [微信支付](real_project_chapter/weixin_pay.md)
   * [回顾](real_project_chapter/review.md)
-
 * [相关工具](tools.md)
   * [vue-devtools](setup_vuejs_devtools.md)
   * [如何学习文档](how_to_read_vuejs_document.md)  

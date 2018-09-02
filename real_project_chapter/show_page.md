@@ -144,7 +144,6 @@ import {scrollPic} from '../../libs/index.js'
         },
         methods:{
           addToCart () {
-            console.info('加入购物车')
             alert("商品已经加入到了购物车")
             let goods = {
               id: this.good_id,
@@ -156,7 +155,7 @@ import {scrollPic} from '../../libs/index.js'
             this.$store.dispatch('addToCart', goods)
           },
           toCart () {
-            go("/cart2", this.$router)
+            go("/cart", this.$router)
           },
           plus () {
             this.buy_count = this.buy_count + 1
@@ -176,15 +175,6 @@ import {scrollPic} from '../../libs/index.js'
 				}
     }
 </script>
-
-<style scoped>
-@import '../../assets/css/detail.css';
-.background {
-  margin-bottom: 80px;
-}
-
-</style>
-
 ```
 
 在上面的代码中， 
@@ -199,18 +189,18 @@ import {scrollPic} from '../../libs/index.js'
 下面的代码是把某个商品添加到购物车中: 
 
 ```
-          addToCart () {
-            console.info('加入购物车')
-            alert("商品已经加入到了购物车")
-            let goods = {
-              id: this.good_id,
-              title: this.good.name,
-              quantity: this.buy_count,
-              price: this.good.price,
-              image: this.good_images[0]
-            }
-            this.$store.dispatch('addToCart', goods)
-          },
+addToCart () {
+    console.info('加入购物车')
+    alert("商品已经加入到了购物车")
+    let goods = {
+        id: this.good_id,
+        title: this.good.name,
+        quantity: this.buy_count,
+        price: this.good.price,
+        image: this.good_images[0]
+    }
+    this.$store.dispatch('addToCart', goods)
+},
 ```
 
 同时，在 src/vuex/actions.js中，添加如下代码: 
