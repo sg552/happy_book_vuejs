@@ -128,9 +128,9 @@ export default new Router({
           <div class="extra_cost" style=" ">
             <span style="float: left; margin-left: 15px;"> 应付金额:</span>
             <div v-if="single_pay" class="rel_price" type="text" name="cost" style="border: 0; background-color: white;
-            font-size: 20px; color: #ff621a; font-weight: bold; outline: none; text-align: right; padding-right: 20px;"> {{total_cost | currency }}</div>
+            font-size: 20px; color: #ff621a; font-weight: bold; outline: none; text-align: right; padding-right: 20px;"> \{\{ total_cost | currency }}</div>
             <div v-else class="rel_price" type="text" name="cost" style="border: 0; background-color: white;
-            font-size: 20px; color: #ff621a; font-weight: bold; outline: none; text-align: right; padding-right: 20px;"> {{ total | currency }}</div>
+            font-size: 20px; color: #ff621a; font-weight: bold; outline: none; text-align: right; padding-right: 20px;"> \{\{ total | currency }}</div>
 
           </div>
         </section>

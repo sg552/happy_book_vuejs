@@ -318,9 +318,8 @@ http://shopweb.siwei.me/auth/wechat
 
 观察仔细的同学可以看到有两次跳转：
 
-第一次跳转到 http://shopweb.siwei.me/auth/wechat
-
-第二次跳转到 https://open.weixin.qq.com/connect/oauth2/authorize...
+- 第一次跳转到 http://shopweb.siwei.me/auth/wechat
+- 第二次跳转到 https://open.weixin.qq.com/connect/oauth2/authorize
 
 如下图所示：
 

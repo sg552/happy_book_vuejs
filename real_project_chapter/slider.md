@@ -183,18 +183,19 @@ function scrollPic() {
         imgBox.style.transform = 'translateX(' + t + 'px)';
         imgBox.style.webkitTransform = 'translateX(' + t + 'px)';
     }
-    //3. 开始动画部分
+
+    // 开始动画部分
     pointBox.children[0].className = "now";
     for (var i = 0; i < ols.length; i++) {
         ols[i].index = i; // 获得当前第几个小li 的索引号
         ols[i].onmouseover = function() {
+            // 所有的都要清空
             for (var j = 0; j < ols.length; j++) {
-                ols[j].className = ""; // 所有的都要清空
+                ols[j].className = "";
             }
             this.className = "now";
             setTransfrom(-indexx * width);
-            // 调用动画函数  第一个参数  谁动画     第二个  走多少
-            square = indexx; // 当前的索引号为主
+            square = indexx; 
         }
     }
     timer = setInterval(function() {
@@ -206,12 +207,13 @@ function scrollPic() {
         if (square > ols.length - 1) {
             square = 0;
         }
-        for (var i = 0; i < ols.length; i++) // 先清除所有的
+        // 先清除所有的
+        for (var i = 0; i < ols.length; i++) 
         {
             ols[i].className = "";
         }
-        //console.log("最初", square);
-        ols[square].className = "now"; // 留下当前的
+        // 留下当前的
+        ols[square].className = "now"; 
     }, 3000);
 
     imgBox.addEventListener('transitionEnd', function() {
@@ -223,16 +225,17 @@ function scrollPic() {
         removeTransition();
         setTransfrom(-indexx * width);
     }, false);
+
     imgBox.addEventListener('webkitTransitionEnd', function() {
         if (indexx >= 9) {
             indexx = 1;
         } else if (indexx <= 0) {
             indexx = 8;
         }
-
         removeTransition();
         setTransfrom(-indexx * width);
     }, false);
+
     /**
      * 触摸事件开始
      */
@@ -242,6 +245,7 @@ function scrollPic() {
         //记录开始滑动的位置
         startX = event.touches[0].clientX;
     }, false);
+
     /**
      * 触摸滑动事件
      */
@@ -259,6 +263,7 @@ function scrollPic() {
         removeTransition();
         setTransfrom(-indexx * width - moveX);
     }, false);
+
     /**
      * 触摸结束事件
      */
@@ -289,15 +294,17 @@ function scrollPic() {
             if (square > ols.length - 1) {
                 square = 0;
             }
-            for (var i = 0; i < ols.length; i++) // 先清除所有的
+            // 先清除所有的
+            for (var i = 0; i < ols.length; i++) 
             {
                 ols[i].className = "";
             }
-            //console.log("最初", square);
-            ols[square].className = "now"; // 留下当前的
+            // 留下当前的
+            ols[square].className = "now"; 
             addTransition();
             setTransfrom(-indexx * width);
 
+        // 每3秒钟轮播图变化一次。
         }, 3000);
     }, false);
 };
@@ -313,8 +320,8 @@ module.exports = {
 3.2 轮播图的视图层
 
 ```
-        <!-- 轮播图-->
-        <HomeBannerView></HomeBannerView>
+<!-- 轮播图-->
+<HomeBannerView></HomeBannerView>   
 ```
 
 上面的代码， 会直接生成一个轮播图。
@@ -345,8 +352,8 @@ module.exports = {
 ## 4. 增加物品分类
 
 ```
-        <!--商品分类-->
-        <HomeNavView></HomeNavView>
+<!--商品分类-->
+<HomeNavView></HomeNavView>
 ```
 
 上面的代码， 会直接生成一个物品分类区域
