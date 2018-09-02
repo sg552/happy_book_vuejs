@@ -52,11 +52,8 @@
   * [准备2: 需求原型图](real_project_chapter/mock_diagram.md)
   * [准备3: 微信的各种账号](real_project_chapter/register_wechat.md)
   * [准备3: 其他](real_project_chapter/team.md)
-  * [用户的注册]
-  * [用户的登陆]
-
-  * [微信的授权]
-  * [把微信账号与注册用户关联]
+  * [整体项目的搭建](real_project_chapter/scaffold.md)
+  * [用户的注册和微信授权](real_project_chapter/user_register.md)
   * [登陆状态的保持]
   * [首页-轮播图]
   * [商品列表页]
