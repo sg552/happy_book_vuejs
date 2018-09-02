@@ -153,7 +153,7 @@ export default new Router({
             <div class="count_money_box">
               <div class="heji">
                 <strong>合计:</strong>
-                <strong style="color: #ff621a; font-size: 18px;">{{ total | currency }}</strong>
+                <strong style="color: #ff621a; font-size: 18px;">\{\{ total | currency }}</strong>
               </div>
               <a :disabled="!products.length" @click="checkout(products)" class="go_pay">
                 <span style="color: #f5f5f5; font-weight: 600;">结算</span>

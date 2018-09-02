@@ -59,11 +59,9 @@
   * [底部Tab](real_project_chapter/bottom_tab.md)
   * [商品列表页](real_project_chapter/list_page.md)
   * [商品详情页](real_project_chapter/show_page.md)
-  * [购物车](real_project_chapter/chart.md)
-  * [微信支付]
-  * [部署到服务器]
-  * [域名的配置]
-  * [回顾]
+  * [购物车](real_project_chapter/cart.md)
+  * [微信支付](real_project_chapter/weixin_pay.md)
+  * [回顾](real_project_chapter/review.md)
 
 * [相关工具](tools.md)
   * [vue-devtools](setup_vuejs_devtools.md)
