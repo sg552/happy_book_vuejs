@@ -1,3 +1,12 @@
+# 说明：
+
+在实体书的最后一章，ＤＥＭＯ地址是: 
+
+前端demo:  https://github.com/sg552/vuejs_book_demo_frontend
+
+后端demo:  https://github.com/sg552/vuejs_book_demo_backend
+
+
 # 本书缘起
 
 这个教程，是根据我公司过去两年多的实际项目经验写的。 
@@ -43,6 +52,13 @@
 - api, 接口型文档.
 
 本文档就是入门的教程型文档。 在线查看地址：http://vue_book.siwei.me/
+
+在实体书的最后一章，ＤＥＭＯ地址是: 
+
+前端demo:  https://github.com/sg552/vuejs_book_demo_frontend
+
+后端demo:  https://github.com/sg552/vuejs_book_demo_backend
+
 
 本教程的代码，都来源于这个demo:  https://github.com/sg552/vue_js_lesson_demo
 
