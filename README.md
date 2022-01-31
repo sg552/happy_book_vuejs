@@ -1,14 +1,24 @@
 # 说明
 
-本在线教程的内容属于"精简版",比实体书的内容少一些. 欢迎大家购买：https://item.jd.com/12517946.html
-
-在实体书的最后一章，DEMO 地址是:
-
-前端demo:  https://github.com/sg552/vuejs_book_demo_frontend
-
-后端demo:  https://github.com/sg552/vuejs_book_demo_backend
+本书版本为 2.x, 本在线教程的内容属于"精简版",比实体书的内容少一些. 欢迎大家购买：https://item.jd.com/12517946.html
 
 实体书的[勘误表在这里](errors_in_book.md) .   (在此,向各位读者致以歉意)
+
+本书3.x 版本已经收尾，敬请期待!
+
+## 对于本书2.x版本的代码demo
+
+1. 不包含最后一章的demo: https://github.com/sg552/happy_book_vuejs
+2. 最后一章的前端demo:  https://github.com/sg552/vuejs_book_demo_frontend
+3. 最后一章的后端demo:  https://github.com/sg552/vuejs_book_demo_backend
+
+## 对于本书3.x 版本的demo
+
+合计有3个demo:
+
+1. 不包含最后一章的demo:  https://github.com/sg552/vue3_lesson_demo
+2. 最后一章的前端demo: https://github.com/sg552/vue3_lesson_demo
+3. 最后一章的后端demo: https://github.com/sg552/vuejs_book_demo_backend
 
 
 # 本书缘起
